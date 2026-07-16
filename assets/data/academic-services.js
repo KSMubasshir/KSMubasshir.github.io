@@ -5,7 +5,7 @@ const SERVICES_DATA = [
     "role": "Program Committee Member",
     "items": [
       { "name": "USENIX Security Symposium (USENIX-Sec)", "years": "2027" },
-      { "name": "International Symposium on Research in Attacks, Intrusions and Defenses (RAID) — Associate PC", "years": "2026" }
+      { "name": "International Symposium on Research in Attacks, Intrusions and Defenses (RAID)", "years": "2026" }
     ]
   },
   {
