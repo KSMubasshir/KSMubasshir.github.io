@@ -647,3 +647,37 @@ footer a:hover { color: #fff; }
 @media (max-width: 720px) {
   .ntag { display: inline-block; margin-bottom: 3px; }
 }
+
+/* ---------- News tag filter chips ---------- */
+.tag-filters { margin-top: -4px; }
+.tagf-btn {
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--muted);
+  padding: 3px 10px;
+  margin: 0;
+  transition: box-shadow .12s, border-color .12s, color .12s, opacity .12s;
+}
+.tagf-btn:hover { border-color: var(--teal); color: var(--teal-dim); }
+.tagf-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+/* colored chips inherit their .ntag-* tint; dim until active */
+.tagf-btn.ntag { margin-right: 0; vertical-align: baseline; opacity: 0.55; }
+.tagf-btn.ntag:hover { opacity: 1; }
+.tagf-btn.is-active {
+  opacity: 1;
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 3.5px var(--teal-dim);
+}
+.tagf-btn.is-active:not(.ntag) {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+  box-shadow: none;
+}
+
+.news-empty { color: var(--muted); font-style: italic; padding: 14px 4px; }

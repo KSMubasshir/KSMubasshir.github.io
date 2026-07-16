@@ -71,9 +71,15 @@
       });
       years.sort((a, b) => b - a);
       let activeYear = null; /* null = all years */
+      let activeTag = null;  /* null = all categories */
+
+      const matches = (n) =>
+        (activeYear === null || n.year === activeYear) &&
+        (activeTag === null || n.tag === activeTag);
 
       const groupHTML = (year, collapsed) => {
-        const items = NEWS_DATA.filter((n) => n.year === year);
+        const items = NEWS_DATA.filter((n) => n.year === year && matches(n));
+        if (!items.length) return '';
         return '<section class="news-group' + (collapsed ? ' collapsed' : '') + '">' +
           '<button type="button" class="news-toggle" aria-expanded="' + !collapsed + '">' +
             '<span class="news-year">' + year + '</span>' +
@@ -90,8 +96,13 @@
 
       const renderNews = () => {
         const shown = activeYear ? [activeYear] : years;
-        /* all years view: newest year open, older ones collapsed */
-        newsEl.innerHTML = shown.map((y, i) => groupHTML(y, activeYear === null && i > 0)).join('');
+        /* all-years + no tag: newest year open, older collapsed;
+           with a tag filter active: expand everything so matches are visible */
+        const html = shown.map((y, i) =>
+          groupHTML(y, activeTag === null && activeYear === null && i > 0)
+        ).join('');
+        newsEl.innerHTML = html ||
+          '<p class="news-empty">No news items match this filter.</p>';
       };
 
       newsEl.addEventListener('click', (e) => {
@@ -113,6 +124,30 @@
           if (!btn) return;
           activeYear = btn.dataset.year ? Number(btn.dataset.year) : null;
           newsFiltersEl.querySelectorAll('.filter-btn').forEach((other) => {
+            const active = other === btn;
+            other.classList.toggle('is-active', active);
+            other.setAttribute('aria-pressed', active);
+          });
+          renderNews();
+        });
+      }
+
+      const tagFiltersEl = document.getElementById('news-tag-filters');
+      if (tagFiltersEl) {
+        const usedTags = Object.keys(NEWS_TAG_LABELS).filter((t) =>
+          NEWS_DATA.some((n) => n.tag === t)
+        );
+        tagFiltersEl.innerHTML =
+          '<button type="button" class="tagf-btn is-active" aria-pressed="true">All</button>' +
+          usedTags.map((t) =>
+            '<button type="button" class="tagf-btn ntag ntag-' + t + '" data-tag="' + t + '"' +
+              ' aria-pressed="false">' + NEWS_TAG_LABELS[t] + '</button>'
+          ).join('');
+        tagFiltersEl.addEventListener('click', (e) => {
+          const btn = e.target.closest('.tagf-btn');
+          if (!btn) return;
+          activeTag = btn.dataset.tag || null;
+          tagFiltersEl.querySelectorAll('.tagf-btn').forEach((other) => {
             const active = other === btn;
             other.classList.toggle('is-active', active);
             other.setAttribute('aria-pressed', active);
