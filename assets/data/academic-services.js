@@ -2,9 +2,10 @@
    Each group renders as a box; "years" is optional and shows as a tag on the right. */
 const SERVICES_DATA = [
   {
-    "role": "Program Committee Member",
+    "role": "Program Committee Memberships",
     "items": [
-      { "name": "USENIX Security Symposium (USENIX-Sec)", "years": "2027" }
+      { "name": "Program Committee Member — USENIX Security Symposium (USENIX-Sec)", "years": "2027" },
+      { "name": "Associate Program Committee Member — International Symposium on Research in Attacks, Intrusions and Defenses (RAID)", "years": "2026" }
     ]
   },
   {
