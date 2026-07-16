@@ -56,6 +56,11 @@
   }
 
   /* ---------- Recent news (home) ---------- */
+  const NEWS_TAG_LABELS = {
+    paper: 'Paper', talk: 'Talk', conference: 'Conference', pc: 'PC',
+    service: 'Service', award: 'Award', internship: 'Internship',
+    milestone: 'Milestone', media: 'Media'
+  };
   if (typeof NEWS_DATA !== 'undefined') {
     const newsEl = document.getElementById('news-groups');
     const newsFiltersEl = document.getElementById('news-filters');
@@ -76,7 +81,9 @@
             '<span class="chev" aria-hidden="true"></span>' +
           '</button>' +
           '<ul class="news plain">' + items.map((n) =>
-            '<li><span class="date">' + n.date + '</span><span>' + n.text + '</span></li>'
+            '<li><span class="date">' + n.date + '</span><span>' +
+              (n.tag ? '<span class="ntag ntag-' + n.tag + '">' + (NEWS_TAG_LABELS[n.tag] || n.tag) + '</span>' : '') +
+              n.text + '</span></li>'
           ).join('') + '</ul>' +
         '</section>';
       };

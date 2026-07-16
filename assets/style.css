@@ -618,3 +618,32 @@ footer a:hover { color: #fff; }
   .pub-row { grid-template-columns: 1fr; gap: 8px; }
   .pub-row .cited, .pub-row .year { text-align: left; }
 }
+
+/* ---------- News tag chips ---------- */
+.ntag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid;
+  padding: 1px 7px;
+  margin-right: 8px;
+  vertical-align: 1px;
+  white-space: nowrap;
+}
+.ntag-paper      { color: #0f6e66; border-color: #9ed4cd; background: #e8f6f4; }
+.ntag-talk       { color: #4a3fa3; border-color: #beb7ea; background: #f0eefb; }
+.ntag-conference { color: #1d5d8f; border-color: #a9cbe6; background: #eaf3fa; }
+.ntag-pc         { color: #8a6100; border-color: #e3c980; background: #fdf6e3; }
+.ntag-service    { color: #7a3e8f; border-color: #d8b3e4; background: #f8effb; }
+.ntag-award      { color: #a04b12; border-color: #ecc2a4; background: #fcf1e8; }
+.ntag-internship { color: #2e7031; border-color: #aed6af; background: #ecf7ec; }
+.ntag-milestone  { color: #a5265e; border-color: #ecafc9; background: #fceef4; }
+.ntag-media      { color: #46586a; border-color: #bcc9d4; background: #eef2f5; }
+
+@media (max-width: 720px) {
+  .ntag { display: inline-block; margin-bottom: 3px; }
+}
