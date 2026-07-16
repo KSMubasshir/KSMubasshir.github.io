@@ -2,8 +2,8 @@
    "year" drives the filter chips and collapsible groups; "text" may contain inline HTML links. */
 const NEWS_DATA = [
   { "date": "Jun 2026", "year": 2026, "text": "Invited to serve on the Program Committee of USENIX Security!" },
-  { "date": "May 2026", "year": 2026, "text": "Passed my preliminary exam and officially became a Ph.D. candidate!" },
   { "date": "May 2026", "year": 2026, "text": "Returned to Amazon Web Services (AWS) as an Applied Scientist Intern for Summer '26, this time in New York!" },
+  { "date": "May 2026", "year": 2026, "text": "Passed my preliminary exam and officially became a Ph.D. candidate!" },
   { "date": "Apr 2026", "year": 2026, "text": "Invited to serve on the Program Committee of RAID!" },
   { "date": "Dec 2025", "year": 2025, "text": "VWAttacker accepted to INFOCOM!" },
   { "date": "Nov 2025", "year": 2025, "text": "Started working as Web Chair for NextG-Sec 2026, co-located with ACNS 2026." },
