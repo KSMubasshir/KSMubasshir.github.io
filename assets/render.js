@@ -219,12 +219,15 @@
           '<a href="' + l.url + '">' + l.label + '</a>'
         ).join('') + '</div>'
       : '';
+    /* placed as a direct child of .pub-row so it spans the full card width */
     const abstract = p.abstract
       ? '<div class="abs">' +
           '<button type="button" class="abs-toggle" aria-expanded="false">' +
-            'Abstract <span class="abs-chev" aria-hidden="true"></span>' +
+            '<span class="abs-chev" aria-hidden="true"></span>' +
+            '<span class="abs-label">Abstract</span>' +
+            '<span class="abs-hint" aria-hidden="true">click to expand</span>' +
           '</button>' +
-          '<div class="abs-body" hidden>' + p.abstract + '</div>' +
+          '<div class="abs-body" hidden><p>' + p.abstract + '</p></div>' +
         '</div>'
       : '';
     return '<div class="pub-row">' +
@@ -232,10 +235,11 @@
         '<div class="title">' + title + '</div>' +
         '<div class="authors">' + p.authors + '</div>' +
         '<div class="venue-line">' + p.venue + '</div>' +
-        badges + res + abstract +
+        badges + res +
       '</div>' +
       '<div class="cited">' + (p.citations == null ? '—' : p.citations) + '<small>CITED BY</small></div>' +
       '<div class="year">' + p.year + '</div>' +
+      abstract +
     '</div>';
   };
 
@@ -292,6 +296,8 @@
     const open = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', !open);
     if (body) body.hidden = open;
+    const hint = btn.querySelector('.abs-hint');
+    if (hint) hint.textContent = open ? 'click to expand' : 'click to collapse';
   });
 
   const buttons = document.querySelectorAll('.pub-table-head .sort-btn');
