@@ -2,6 +2,17 @@
    Each block only runs if its target element exists on the current page. */
 (() => {
 
+  /* ---------- External links open in a new tab ----------
+     Delegated on click so links injected by later re-renders
+     (sort/filter/news toggles) are covered too. */
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href]');
+    if (a && a.host && a.host !== location.host) {
+      a.target = '_blank';
+      a.rel = 'noopener';
+    }
+  });
+
   /* ---------- Last-updated stamp (any page with #last-updated) ---------- */
   const updatedEl = document.getElementById('last-updated');
   if (updatedEl) {
