@@ -361,32 +361,34 @@ main li { margin-bottom: 7px; }
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(13,27,42,.06);
+  transition: border-color .15s, box-shadow .15s;
 }
+.svc-card:hover { border-color: var(--teal); box-shadow: 0 2px 8px rgba(13,27,42,.10); }
 .svc-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 10px;
-  padding: 12px 20px;
-  background: #24405c;
-  background-image: radial-gradient(ellipse 90% 160% at 85% -40%, rgba(31,158,147,0.25), transparent 60%);
-  border-bottom: 3px solid var(--teal);
+  padding: 11px 18px;
+  background: #f0f5f4;
+  border-left: 3px solid var(--teal);
 }
 .svc-head .svc-role {
   margin: 0;
   padding: 0;
   border: none;
   font-size: 1.05rem;
-  color: #fff;
+  font-weight: 700;
+  color: var(--ink);
 }
 .svc-count {
   font-family: var(--mono);
-  font-size: 0.72rem;
-  color: #9fe0d9;
-  background: rgba(31,158,147,0.18);
-  border: 1px solid rgba(31,158,147,0.55);
+  font-size: 0.7rem;
+  color: var(--teal-dim);
+  background: var(--card);
+  border: 1px solid #b9dfda;
   border-radius: 999px;
-  padding: 2px 10px;
+  padding: 1px 10px;
   white-space: nowrap;
 }
 .svc-items { list-style: none; padding: 8px 20px 14px; }
