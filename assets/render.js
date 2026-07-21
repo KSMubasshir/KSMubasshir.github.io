@@ -2,6 +2,16 @@
    Each block only runs if its target element exists on the current page. */
 (() => {
 
+  /* ---------- Last-updated stamp (any page with #last-updated) ---------- */
+  const updatedEl = document.getElementById('last-updated');
+  if (updatedEl) {
+    const d = new Date(document.lastModified);
+    const stamp = isNaN(d)
+      ? document.lastModified
+      : d.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+    updatedEl.textContent = 'Last updated: ' + stamp;
+  }
+
   /* ---------- Generic card lists (awards, education & employment) ---------- */
   const cardHTML = (item) => {
     let html = '<div class="card">' +
@@ -209,12 +219,20 @@
           '<a href="' + l.url + '">' + l.label + '</a>'
         ).join('') + '</div>'
       : '';
+    const abstract = p.abstract
+      ? '<div class="abs">' +
+          '<button type="button" class="abs-toggle" aria-expanded="false">' +
+            'Abstract <span class="abs-chev" aria-hidden="true"></span>' +
+          '</button>' +
+          '<div class="abs-body" hidden>' + p.abstract + '</div>' +
+        '</div>'
+      : '';
     return '<div class="pub-row">' +
       '<div>' +
         '<div class="title">' + title + '</div>' +
         '<div class="authors">' + p.authors + '</div>' +
         '<div class="venue-line">' + p.venue + '</div>' +
-        badges + res +
+        badges + res + abstract +
       '</div>' +
       '<div class="cited">' + (p.citations == null ? '—' : p.citations) + '<small>CITED BY</small></div>' +
       '<div class="year">' + p.year + '</div>' +
@@ -265,6 +283,16 @@
       renderPapers();
     });
   }
+
+  /* Collapsible abstract dropdowns (event-delegated so it survives re-render) */
+  pubList.addEventListener('click', (e) => {
+    const btn = e.target.closest('.abs-toggle');
+    if (!btn) return;
+    const body = btn.nextElementSibling;
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !open);
+    if (body) body.hidden = open;
+  });
 
   const buttons = document.querySelectorAll('.pub-table-head .sort-btn');
   buttons.forEach((btn) => {
