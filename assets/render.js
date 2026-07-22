@@ -55,78 +55,73 @@
     ).join('') + '</div>';
   }
 
-  /* ---------- Timeline (education & employment) ---------- */
-  const TL_ICON = {
-    work: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
-    edu:  '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>'
+  /* ---------- LinkedIn-style experience timeline (employment & education) ---------- */
+  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const parseYM = (s) => {
+    if (!s || s === 'present') { const n = new Date(); return { y: n.getFullYear(), m: n.getMonth() + 1 }; }
+    const p = s.split('-'); return { y: +p[0], m: +p[1] };
   };
-  const timelineItemHTML = (item) => {
-    const t = item.type === 'edu' ? 'edu' : 'work';
+  const fmtYM = (s) => {
+    if (!s || s === 'present') return 'Present';
+    const d = parseYM(s); return MONTHS[d.m - 1] + ' ' + d.y;
+  };
+  const durationText = (start, end) => {
+    const a = parseYM(start), b = parseYM(end);
+    let months = (b.y - a.y) * 12 + (b.m - a.m) + 1;
+    if (months < 1) months = 1;
+    const y = Math.floor(months / 12), m = months % 12;
+    const parts = [];
+    if (y) parts.push(y + ' yr' + (y > 1 ? 's' : ''));
+    if (m) parts.push(m + ' mo' + (m > 1 ? 's' : ''));
+    return parts.join(' ') || '1 mo';
+  };
+
+  const expItemHTML = (item, ongoing) => {
+    const period = item.periodText || (fmtYM(item.start) + ' – ' + fmtYM(item.end));
+    const dur = item.start ? durationText(item.start, item.end) : '';
+    const orgName = item.url ? '<a href="' + item.url + '">' + item.org + '</a>' : item.org;
+    const monogram = '<span class="xp-monogram" style="background:' + (item.logoColor || 'var(--ink)') + '">' +
+      (item.logo || (item.org || '?').charAt(0)) + '</span>';
+    const logo = item.domain
+      ? '<img class="xp-logo-img" src="https://www.google.com/s2/favicons?domain=' + item.domain + '&sz=64"' +
+        ' alt="" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">' +
+        monogram.replace('class="xp-monogram"', 'class="xp-monogram" style="display:none;background:' + (item.logoColor || 'var(--ink)') + '"')
+      : monogram;
     let body = '';
-    if (item.detail) body += '<p class="tl-detail">' + item.detail + '</p>';
+    if (item.detail) body += '<p class="xp-detail">' + item.detail + '</p>';
     if (item.bullets && item.bullets.length) {
-      body += '<ul class="tl-bullets">' +
-        item.bullets.map((b) => '<li>' + b + '</li>').join('') + '</ul>';
+      body += '<ul class="xp-bullets">' + item.bullets.map((b) => '<li>' + b + '</li>').join('') + '</ul>';
     }
-    return '<div class="tl-item tl-' + t + '">' +
-      '<span class="tl-dot" aria-hidden="true">' + TL_ICON[t] + '</span>' +
-      '<div class="tl-card">' +
-        (item.period ? '<span class="tl-period">' + item.period + '</span>' : '') +
-        '<h3 class="tl-role">' + item.role + '</h3>' +
-        (item.org ? '<div class="tl-org">' + item.org + '</div>' : '') +
-        (item.location ? '<div class="tl-loc">' + item.location + '</div>' : '') +
+    return '<li class="xp-item' + (ongoing ? ' xp-ongoing' : '') + '">' +
+      '<div class="xp-rail" aria-hidden="true"><span class="xp-node"></span><span class="xp-bar"></span></div>' +
+      '<div class="xp-logo">' + logo + '</div>' +
+      '<div class="xp-body">' +
+        '<div class="xp-title">' + item.title + '</div>' +
+        '<div class="xp-org">' + orgName +
+          (item.employmentType ? ' <span class="xp-type">· ' + item.employmentType + '</span>' : '') + '</div>' +
+        '<div class="xp-dates">' + period +
+          (dur ? ' <span class="xp-dur">· ' + dur + '</span>' : '') + '</div>' +
+        (item.location ? '<div class="xp-loc">' + item.location + '</div>' : '') +
         body +
       '</div>' +
-    '</div>';
+    '</li>';
   };
-  const renderTimeline = (id, items) => {
+
+  const renderExperience = (id, items) => {
     const el = document.getElementById(id);
-    if (el && items) el.innerHTML =
-      '<div class="timeline">' + items.map(timelineItemHTML).join('') + '</div>';
+    if (!el || !items) return;
+    const sorted = items.slice().sort((p, q) => {
+      const a = parseYM(p.start), b = parseYM(q.start);
+      return (b.y * 12 + b.m) - (a.y * 12 + a.m);
+    });
+    el.innerHTML = '<ul class="xp-list">' +
+      sorted.map((it) => expItemHTML(it, it.end === 'present' || !it.end)).join('') +
+    '</ul>';
   };
+
   if (typeof EDU_EMP_DATA !== 'undefined') {
-    /* Employment: LinkedIn-style, grouped by company */
-    const empEl = document.getElementById('employment-list');
-    if (empEl && EDU_EMP_DATA.employment) {
-      empEl.innerHTML = '<ul class="exp-list">' + EDU_EMP_DATA.employment.map((c) => {
-        const multi = c.roles.length > 1;
-        const companyName = c.url
-          ? '<a href="' + c.url + '">' + c.company + '</a>'
-          : c.company;
-        const roles = c.roles.map((r) =>
-          '<li class="exp-role' + (multi ? ' is-sub' : '') + '">' +
-            (multi ? '<span class="exp-subdot" aria-hidden="true"></span>' : '') +
-            '<div class="exp-role-body">' +
-              '<div class="exp-title">' + r.title + '</div>' +
-              '<div class="exp-meta">' +
-                (multi ? '' : '<span class="exp-company">' + companyName + '</span> · ') +
-                '<span class="exp-type">' + (r.employmentType || '') + '</span>' +
-              '</div>' +
-              '<div class="exp-dates">' + (r.period || '') +
-                (c.location ? ' · ' + c.location : '') + '</div>' +
-              (r.detail ? '<p class="exp-detail">' + r.detail + '</p>' : '') +
-              (r.bullets && r.bullets.length
-                ? '<ul class="exp-bullets">' + r.bullets.map((b) => '<li>' + b + '</li>').join('') + '</ul>'
-                : '') +
-            '</div>' +
-          '</li>'
-        ).join('');
-        return '<li class="exp-company-item">' +
-          '<div class="exp-logo" style="background:' + (c.logoColor || 'var(--ink)') + '">' +
-            '<span>' + (c.logo || c.company.charAt(0)) + '</span>' +
-          '</div>' +
-          '<div class="exp-content">' +
-            (multi
-              ? '<div class="exp-company-head">' + companyName +
-                  '<span class="exp-rolecount">' + c.roles.length + ' roles</span></div>'
-              : '') +
-            '<ul class="exp-roles' + (multi ? ' has-rail' : '') + '">' + roles + '</ul>' +
-          '</div>' +
-        '</li>';
-      }).join('') + '</ul>';
-    }
-    /* Education: timeline */
-    renderTimeline('education-list', EDU_EMP_DATA.education);
+    renderExperience('employment-list', EDU_EMP_DATA.employment);
+    renderExperience('education-list', EDU_EMP_DATA.education);
   }
 
   /* ---------- Home page (hero, about, artifacts) ---------- */
