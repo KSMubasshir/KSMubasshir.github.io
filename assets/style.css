@@ -868,3 +868,17 @@ footer a:hover { color: #fff; }
 .role-logo .xp-logo-img { width: 26px; height: 26px; }
 .role-logo .xp-logo-full { width: 34px; height: 34px; }
 .role-text { min-width: 0; }
+
+/* ---------- Social link icons ---------- */
+.social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.soc-ico {
+  display: inline-flex;
+  align-items: center;
+  color: var(--teal-dim);
+  flex: 0 0 auto;
+}
+.soc-img { width: 14px; height: 14px; }

@@ -127,9 +127,16 @@
   if (typeof HOME_DATA !== 'undefined') {
     const socialEl = document.getElementById('home-social');
     if (socialEl) {
-      socialEl.innerHTML = HOME_DATA.social.map((s) =>
-        '<a href="' + s.url + '">' + s.label + '</a>'
-      ).join('');
+      const DOC_ICON = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>';
+      socialEl.innerHTML = HOME_DATA.social.map((s) => {
+        const icon = s.icon === 'doc'
+          ? '<span class="soc-ico">' + DOC_ICON + '</span>'
+          : (s.domain
+              ? '<img class="soc-ico soc-img" src="https://www.google.com/s2/favicons?domain=' + s.domain + '&sz=32"' +
+                ' alt="" loading="lazy" onerror="this.style.display=\'none\';">'
+              : '');
+        return '<a href="' + s.url + '">' + icon + s.label + '</a>';
+      }).join('');
     }
     const rolesEl = document.getElementById('home-roles');
     if (rolesEl) {
