@@ -30,7 +30,7 @@ const EDU_EMP_DATA = {
       "location": "New York, NY",
       "detail": "Security, Search and Observability.",
       "bullets": [
-        "Developing LLM-powered security analytics for AWS-scale search and observability workloads on the Security, Search and Observability team."
+        "Developing agentic AI methods that automate security triage workflows over large-scale search and observability data, reducing manual analyst effort."
       ]
     },
     {
@@ -46,7 +46,8 @@ const EDU_EMP_DATA = {
       "location": "West Lafayette, IN",
       "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino.",
       "bullets": [
-        "..."
+        "Contributed to VWAttacker, a systematic security-testing framework for Voice-over-WiFi user equipment that uncovered downgrade, information-leakage, and denial-of-service weaknesses across commercial devices (IEEE INFOCOM 2026).",
+        "Co-authored work that turns feature-attribution explanations of 5G anomaly-detection models into concrete, actionable mitigation steps for analysts (IEEE ICNC 2026)."
       ]
     },
     {
@@ -62,7 +63,7 @@ const EDU_EMP_DATA = {
       "location": "West Lafayette, IN",
       "detail": "Department of Computer Science.",
       "bullets": [
-        "Taught object-oriented programming fundamentals for CS180 by leading labs, grading projects, and holding weekly office hours."
+        "Taught CS 180 (Problem Solving and Object-Oriented Programming) to a ~900-student course by leading labs, grading projects, and holding weekly office hours."
       ]
     },
     {
@@ -79,7 +80,7 @@ const EDU_EMP_DATA = {
       "location": "Boston, MA",
       "detail": "Security Analytics and AI Research (SAAR).",
       "bullets": [
-        "Advanced AI-driven threat-detection research for AWS security services by designing and evaluating security analytics models on large-scale cloud telemetry with the SAAR team."
+        "Designed an LLM-based approach for automatically identifying high-severity vulnerability classes in cloud environments without requiring labeled training data, achieving high accuracy and consistency in evaluations."
       ]
     },
     {
@@ -95,7 +96,7 @@ const EDU_EMP_DATA = {
       "periodText": "Mar 2025 – Present",
       "location": "Purdue University · West Lafayette, IN",
       "bullets": [
-        "Grew Amazon's campus presence at Purdue by organizing recruiting and brand events and guiding students toward Amazon internship and career pathways."
+        "Partner with Amazon recruiting to run campus hiring events, refer top talent, and share internship insights."
       ]
     },
     {
@@ -111,7 +112,7 @@ const EDU_EMP_DATA = {
       "location": "West Lafayette, IN",
       "detail": "Department of Computer Science.",
       "bullets": [
-        "Taught object-oriented programming fundamentals for CS180 by leading labs, grading projects, and holding weekly office hours."
+        "Taught CS 180 (Problem Solving and Object-Oriented Programming) to a ~900-student course by leading labs, grading projects, and holding weekly office hours."
       ]
     },
     {
@@ -127,7 +128,7 @@ const EDU_EMP_DATA = {
       "location": "West Lafayette, IN",
       "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino.",
       "bullets": [
-        "Prepared FBSDetector for publication by completing large-scale evaluations and open-source artifacts, culminating in a USENIX Security 2025 paper (joint first author)."
+        "Completed large-scale evaluations and open-source artifacts for FBSDetector, showing high-accuracy, low-false-positive detection that runs on commodity devices, leading to a USENIX Security 2025 paper (joint first author)."
       ]
     },
     {
@@ -144,7 +145,7 @@ const EDU_EMP_DATA = {
       "location": "Boston, MA",
       "detail": "Security Analytics and AI Research (SAAR), External Security Services (ESS).",
       "bullets": [
-        "Adapted academic fake-base-station detection research to AWS security analytics use cases, delivering an internal prototype and an AWS-SAAR tech talk (July 2024)."
+        "Built an LLM-based research prototype that augments security investigations with relevant context retrieved in real time from cloud data sources."
       ]
     },
     {
@@ -160,8 +161,8 @@ const EDU_EMP_DATA = {
       "location": "West Lafayette, IN",
       "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino.",
       "bullets": [
-        "Built FBSDetector, an ML system that detects fake base stations and multi-step attacks from network-side LTE/5G traces, later published at USENIX Security 2025.",
-        "Co-created SPEC5G, the first public NLP dataset for 5G protocol analysis (3.5M+ sentences), published at IJCNLP-AACL 2023."
+        "Built FBSDetector, an ML system that detects fake base stations and the multi-step attacks they launch directly from LTE/5G network traces, by curating a large labeled trace dataset and engineering stateful protocol features, published at USENIX Security 2025 (joint first author).",
+        "Co-created SPEC5G, the first public NLP dataset for 5G protocol analysis (3.5M+ sentences from specification documents), enabling automated security text classification and summarization, published at IJCNLP-AACL 2023."
       ]
     },
     {
@@ -177,7 +178,9 @@ const EDU_EMP_DATA = {
       "location": "Dhaka, Bangladesh",
       "detail": "Management Information System (MIS). NLP R&D, predictive analytics, chatbot and web development.",
       "bullets": [
-        "Shipped NLP and predictive-analytics capabilities for enterprise MIS by building chatbot, forecasting, and text-processing pipelines used across ACI business units."
+        "Shipped customer-purchase prediction models (lapsed-customer and next-purchase-amount) that guided retail business decisions, collaborating with a ten-person MIS analytics team.",
+        "Built a speech-to-sentiment pipeline for the ACI call center, automating customer sentiment analysis and FAQ mining.",
+        "Forecast Yamaha motorbike warranty claims to guide inventory planning and show results in a business dashboard using Python and Django as backend."
       ]
     },
     {
@@ -194,7 +197,8 @@ const EDU_EMP_DATA = {
       "location": "Dhaka, Bangladesh",
       "detail": "Rifat Shahriyar's Lab, Department of CSE. Multilingual NLP research.",
       "bullets": [
-        "Co-authored three multilingual NLP resources — BanglaNMT (2.75M translation pairs), XL-Sum (44-language summarization), and BanglaBERT — published at EMNLP 2020, ACL-IJCNLP 2021, and NAACL 2022."
+        "Helped build the largest Bengali–English parallel corpus to date via novel aligner-ensembling and batch-filtering techniques, achieving substantial BLEU improvements over prior translation systems, published at EMNLP 2020.",
+        "Co-authored BanglaBERT, a Bangla language model that set a new state of the art on Bangla language-understanding benchmarks (NAACL 2022), and XL-Sum, a 1M-article abstractive summarization dataset covering 44 languages (ACL-IJCNLP 2021)."
       ]
     }
   ],
