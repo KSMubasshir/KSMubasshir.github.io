@@ -74,7 +74,7 @@ const EDU_EMP_DATA = {
       "domain": "amazon.com",
       "logo": "a", "logoColor": "#232f3e",
       "employmentType": "Part-time",
-      "start": "2025-03", "end": "present",
+      "start": "2025-03", "end": "present", "hideCurrent": true,
       "periodText": "Mar 2025 – Present",
       "location": "Purdue University · West Lafayette, IN"
     },

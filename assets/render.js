@@ -124,12 +124,12 @@
     el.innerHTML = '<ul class="xp-list">' + groups.map((g) => {
       const first = g.items[0];
       const parts = logoHTML(first);
-      const groupOngoing = g.items.some((it) => it.end === 'present');
+      const groupOngoing = g.items.some((it) => it.end === 'present' && !it.hideCurrent);
       if (g.items.length === 1) {
         return '<li class="xp-item' + (groupOngoing ? ' xp-ongoing' : '') + '">' +
           '<div class="xp-logo-col"><div class="xp-logo">' + parts.logo + '</div></div>' +
           '<div class="xp-body">' +
-            roleLinesHTML(first, first.end === 'present', parts.orgName, true) +
+            roleLinesHTML(first, first.end === 'present' && !first.hideCurrent, parts.orgName, true) +
           '</div>' +
         '</li>';
       }
@@ -142,7 +142,7 @@
           '<ul class="xp-roles">' + g.items.map((it) =>
             '<li class="xp-subrole"><span class="xp-subdot" aria-hidden="true"></span>' +
               '<div class="xp-subrole-body">' +
-                roleLinesHTML(it, it.end === 'present', parts.orgName, false) +
+                roleLinesHTML(it, it.end === 'present' && !it.hideCurrent, parts.orgName, false) +
               '</div>' +
             '</li>'
           ).join('') + '</ul>' +
