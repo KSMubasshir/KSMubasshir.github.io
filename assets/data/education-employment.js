@@ -94,6 +94,18 @@ const EDU_EMP_DATA = {
       ]
     },
     {
+      "title": "Graduate Research Assistant",
+      "org": "Purdue University",
+      "url": "https://www.cs.purdue.edu/",
+      "domain": "purdue.edu",
+      "logo": "P", "logoColor": "#b1810b",
+      "employmentType": "Full-time",
+      "start": "2024-08", "end": "2024-12",
+      "periodText": "Fall '24",
+      "location": "West Lafayette, IN",
+      "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino."
+    },
+    {
       "title": "Applied Scientist Intern",
       "org": "Amazon Web Services (AWS)",
       "url": "https://aws.amazon.com/",
@@ -112,8 +124,8 @@ const EDU_EMP_DATA = {
       "domain": "purdue.edu",
       "logo": "P", "logoColor": "#b1810b",
       "employmentType": "Full-time",
-      "start": "2022-08", "end": "2024-12",
-      "periodText": "Fall '22 – Fall '24",
+      "start": "2022-08", "end": "2024-05",
+      "periodText": "Fall '22 – Spring '24",
       "location": "West Lafayette, IN",
       "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino."
     },
