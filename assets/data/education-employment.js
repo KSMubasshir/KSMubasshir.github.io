@@ -21,38 +21,48 @@ const EDU_EMP_DATA = {
       "org": "Amazon Web Services (AWS)",
       "url": "https://aws.amazon.com/",
       "domain": "aws.amazon.com",
-      "logo": "aws", "logoColor": "#ff9900",
+      "logo": "aws",
+      "logoColor": "#ff9900",
       "employmentType": "Internship",
-      "start": "2026-05", "end": "2026-08",
+      "start": "2026-05",
+      "end": "2026-08",
       "periodText": "May 2026 – Aug 2026",
       "location": "New York, NY",
-      "detail": "Security, Search and Observability."
+      "detail": "Security, Search and Observability.",
+      "bullets": [
+        "Developing LLM-powered security analytics for AWS-scale search and observability workloads on the Security, Search and Observability team."
+      ]
     },
     {
       "title": "Graduate Research Assistant",
       "org": "Purdue University",
       "url": "https://www.cs.purdue.edu/",
       "domain": "purdue.edu",
-      "logo": "P", "logoColor": "#b1810b",
-      "employmentType": "Full-time",
-      "start": "2026-01", "end": "2026-05",
+      "logo": "P",
+      "logoColor": "#b1810b",
+      "start": "2026-01",
+      "end": "2026-05",
       "periodText": "Spring '26",
       "location": "West Lafayette, IN",
-      "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino."
+      "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino.",
+      "bullets": [
+        "Extended network-side fake-base-station defense toward 5G/ORAN deployments by building physics-guided and heuristics-based detection pipelines evaluated on lab and real-network datasets."
+      ]
     },
     {
       "title": "Graduate Teaching Assistant",
       "org": "Purdue University",
       "url": "https://www.cs.purdue.edu/",
       "domain": "purdue.edu",
-      "logo": "P", "logoColor": "#b1810b",
-      "employmentType": "Part-time",
-      "start": "2025-08", "end": "2025-12",
+      "logo": "P",
+      "logoColor": "#b1810b",
+      "start": "2025-08",
+      "end": "2025-12",
       "periodText": "Fall '25",
       "location": "West Lafayette, IN",
       "detail": "Department of Computer Science.",
       "bullets": [
-        "CS180: Problem Solving and Object-Oriented Programming"
+        "Taught object-oriented programming fundamentals for CS180 by leading labs, grading projects, and holding weekly office hours."
       ]
     },
     {
@@ -60,37 +70,48 @@ const EDU_EMP_DATA = {
       "org": "Amazon Web Services (AWS)",
       "url": "https://aws.amazon.com/",
       "domain": "aws.amazon.com",
-      "logo": "aws", "logoColor": "#ff9900",
+      "logo": "aws",
+      "logoColor": "#ff9900",
       "employmentType": "Internship",
-      "start": "2025-05", "end": "2025-08",
+      "start": "2025-05",
+      "end": "2025-08",
       "periodText": "May 2025 – Aug 2025",
       "location": "Boston, MA",
-      "detail": "Security Analytics and AI Research (SAAR)."
+      "detail": "Security Analytics and AI Research (SAAR).",
+      "bullets": [
+        "Advanced AI-driven threat-detection research for AWS security services by designing and evaluating security analytics models on large-scale cloud telemetry with the SAAR team."
+      ]
     },
     {
       "title": "Campus Brand Ambassador (CBA)",
       "org": "Amazon",
       "url": "https://www.amazon.com/",
       "domain": "amazon.com",
-      "logo": "a", "logoColor": "#232f3e",
-      "employmentType": "Part-time",
-      "start": "2025-03", "end": "present", "hideCurrent": true,
+      "logo": "a",
+      "logoColor": "#232f3e",
+      "start": "2025-03",
+      "end": "present",
+      "hideCurrent": true,
       "periodText": "Mar 2025 – Present",
-      "location": "Purdue University · West Lafayette, IN"
+      "location": "Purdue University · West Lafayette, IN",
+      "bullets": [
+        "Grew Amazon's campus presence at Purdue by organizing recruiting and brand events and guiding students toward Amazon internship and career pathways."
+      ]
     },
     {
       "title": "Graduate Teaching Assistant",
       "org": "Purdue University",
       "url": "https://www.cs.purdue.edu/",
       "domain": "purdue.edu",
-      "logo": "P", "logoColor": "#b1810b",
-      "employmentType": "Part-time",
-      "start": "2025-01", "end": "2025-05",
+      "logo": "P",
+      "logoColor": "#b1810b",
+      "start": "2025-01",
+      "end": "2025-05",
       "periodText": "Spring '25",
       "location": "West Lafayette, IN",
       "detail": "Department of Computer Science.",
       "bullets": [
-        "CS180: Problem Solving and Object-Oriented Programming"
+        "Taught object-oriented programming fundamentals for CS180 by leading labs, grading projects, and holding weekly office hours."
       ]
     },
     {
@@ -98,60 +119,83 @@ const EDU_EMP_DATA = {
       "org": "Purdue University",
       "url": "https://www.cs.purdue.edu/",
       "domain": "purdue.edu",
-      "logo": "P", "logoColor": "#b1810b",
-      "employmentType": "Full-time",
-      "start": "2024-08", "end": "2024-12",
+      "logo": "P",
+      "logoColor": "#b1810b",
+      "start": "2024-08",
+      "end": "2024-12",
       "periodText": "Fall '24",
       "location": "West Lafayette, IN",
-      "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino."
+      "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino.",
+      "bullets": [
+        "Prepared FBSDetector for publication by completing large-scale evaluations and open-source artifacts, culminating in a USENIX Security 2025 paper (joint first author)."
+      ]
     },
     {
       "title": "Applied Scientist Intern",
       "org": "Amazon Web Services (AWS)",
       "url": "https://aws.amazon.com/",
       "domain": "aws.amazon.com",
-      "logo": "aws", "logoColor": "#ff9900",
+      "logo": "aws",
+      "logoColor": "#ff9900",
       "employmentType": "Internship",
-      "start": "2024-05", "end": "2024-08",
+      "start": "2024-05",
+      "end": "2024-08",
       "periodText": "May 2024 – Aug 2024",
       "location": "Boston, MA",
-      "detail": "Security Analytics and AI Research (SAAR), External Security Services (ESS)."
+      "detail": "Security Analytics and AI Research (SAAR), External Security Services (ESS).",
+      "bullets": [
+        "Adapted academic fake-base-station detection research to AWS security analytics use cases, delivering an internal prototype and an AWS-SAAR tech talk (July 2024)."
+      ]
     },
     {
       "title": "Graduate Research Assistant",
       "org": "Purdue University",
       "url": "https://www.cs.purdue.edu/",
       "domain": "purdue.edu",
-      "logo": "P", "logoColor": "#b1810b",
-      "employmentType": "Full-time",
-      "start": "2022-08", "end": "2024-05",
+      "logo": "P",
+      "logoColor": "#b1810b",
+      "start": "2022-08",
+      "end": "2024-05",
       "periodText": "Fall '22 – Spring '24",
       "location": "West Lafayette, IN",
-      "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino."
+      "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino.",
+      "bullets": [
+        "Built FBSDetector, an ML system that detects fake base stations and multi-step attacks from network-side LTE/5G traces, later published at USENIX Security 2025.",
+        "Co-created SPEC5G, the first public NLP dataset for 5G protocol analysis (3.5M+ sentences), published at IJCNLP-AACL 2023."
+      ]
     },
     {
       "title": "Machine Learning Engineer",
       "org": "Advanced Chemical Industries (ACI) Ltd.",
       "url": "https://www.aci-bd.com/",
       "domain": "aci-bd.com",
-      "logo": "ACI", "logoColor": "#c8102e",
-      "employmentType": "Full-time",
-      "start": "2020-09", "end": "2022-08",
+      "logo": "ACI",
+      "logoColor": "#c8102e",
+      "start": "2020-09",
+      "end": "2022-08",
       "periodText": "Sep 2020 – Aug 2022",
       "location": "Dhaka, Bangladesh",
-      "detail": "Management Information System (MIS). NLP R&D, predictive analytics, chatbot and web development."
+      "detail": "Management Information System (MIS). NLP R&D, predictive analytics, chatbot and web development.",
+      "bullets": [
+        "Shipped NLP and predictive-analytics capabilities for enterprise MIS by building chatbot, forecasting, and text-processing pipelines used across ACI business units."
+      ]
     },
     {
       "title": "Undergraduate Research Assistant",
       "org": "Bangladesh University of Engineering and Technology (BUET)",
       "url": "https://cse.buet.ac.bd/",
       "logoSrc": "assets/logos/buet.png",
-      "logo": "B", "logoColor": "#00539b",
+      "logo": "B",
+      "logoColor": "#00539b",
       "employmentType": "Research",
-      "start": "2019-03", "end": "2020-09",
+      "start": "2019-03",
+      "end": "2020-09",
       "periodText": "Mar 2019 – Sep 2020",
       "location": "Dhaka, Bangladesh",
-      "detail": "Rifat Shahriyar's Lab, Department of CSE. Multilingual NLP research."
+      "detail": "Rifat Shahriyar's Lab, Department of CSE. Multilingual NLP research.",
+      "bullets": [
+        "Co-authored three multilingual NLP resources — BanglaNMT (2.75M translation pairs), XL-Sum (44-language summarization), and BanglaBERT — published at EMNLP 2020, ACL-IJCNLP 2021, and NAACL 2022."
+      ]
     }
   ],
   "education": [
@@ -160,9 +204,11 @@ const EDU_EMP_DATA = {
       "org": "Purdue University",
       "url": "https://www.cs.purdue.edu/",
       "domain": "purdue.edu",
-      "logo": "P", "logoColor": "#b1810b",
+      "logo": "P",
+      "logoColor": "#b1810b",
       "employmentType": "Doctoral degree",
-      "start": "2022-08", "end": "2027-05",
+      "start": "2022-08",
+      "end": "2027-05",
       "periodText": "Fall '22 – Spring '27 (expected)",
       "location": "West Lafayette, IN",
       "detail": "Advised by Prof. Elisa Bertino. Ph.D. candidate (passed preliminary exam, May 2026)."
@@ -172,9 +218,11 @@ const EDU_EMP_DATA = {
       "org": "Bangladesh University of Engineering and Technology (BUET)",
       "url": "https://cse.buet.ac.bd/",
       "logoSrc": "assets/logos/buet.png",
-      "logo": "B", "logoColor": "#00539b",
+      "logo": "B",
+      "logoColor": "#00539b",
       "employmentType": "Bachelor's degree",
-      "start": "2016-01", "end": "2021-04",
+      "start": "2016-01",
+      "end": "2021-04",
       "periodText": "2016 – 2021",
       "location": "Dhaka, Bangladesh",
       "detail": "CGPA 3.81 / 4.00. <a href=\"https://cse.buet.ac.bd/\">Department of Computer Science and Engineering</a>."
