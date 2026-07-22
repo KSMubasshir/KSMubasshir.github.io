@@ -1,24 +1,29 @@
 /* Awards & honors data — edit this file to add/update entries.
-   "meta" may contain inline HTML links. */
+   Fields: title, org (may contain HTML links), year (string, shown as a badge). */
 const AWARDS_DATA = [
   {
-    "title": "Travel Award",
-    "meta": "Purdue Graduate Student Government (PGSG) · Summer '25"
+    "title": "Graduate Student Travel Award",
+    "org": "Purdue Graduate Student Government (PGSG)",
+    "year": "2025"
   },
   {
-    "title": "Student Grant",
-    "meta": "USENIX Security '25"
+    "title": "USENIX Security Student Grant",
+    "org": "USENIX Association — USENIX Security '25",
+    "year": "2025"
   },
   {
-    "title": "Graduate Student Travel Grant '25",
-    "meta": "Purdue College of Science (CoS)"
+    "title": "Graduate Student Travel Grant",
+    "org": "Purdue College of Science (CoS)",
+    "year": "2025"
   },
   {
     "title": "University Technical Scholarship",
-    "meta": "<a href=\"https://www.buet.ac.bd/\">Bangladesh University of Engineering and Technology</a> (BUET) · 2016–2021"
+    "org": "<a href=\"https://www.buet.ac.bd/\">Bangladesh University of Engineering and Technology</a> (BUET)",
+    "year": "2016–2021"
   },
   {
-    "title": "Dean's List",
-    "meta": "For 4 consecutive academic years, <a href=\"https://cse.buet.ac.bd/\">Department of Computer Science and Engineering</a> · <a href=\"https://www.buet.ac.bd/\">Bangladesh University of Engineering and Technology</a> (BUET) · 2016–2021"
+    "title": "Dean's List (4 consecutive years)",
+    "org": "<a href=\"https://cse.buet.ac.bd/\">Dept. of CSE</a>, <a href=\"https://www.buet.ac.bd/\">BUET</a>",
+    "year": "2016–2021"
   }
 ];

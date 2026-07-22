@@ -42,11 +42,51 @@
   };
 
   if (typeof AWARDS_DATA !== 'undefined') {
-    renderCards('awards-list', AWARDS_DATA);
+    const el = document.getElementById('awards-list');
+    if (el) el.innerHTML = '<div class="award-grid">' + AWARDS_DATA.map((a) =>
+      '<div class="award-card">' +
+        (a.year ? '<span class="award-year">' + a.year + '</span>' : '') +
+        '<div class="award-medal" aria-hidden="true">' +
+          '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg>' +
+        '</div>' +
+        '<h3 class="award-title">' + a.title + '</h3>' +
+        (a.org ? '<div class="award-org">' + a.org + '</div>' : '') +
+      '</div>'
+    ).join('') + '</div>';
   }
+
+  /* ---------- Timeline (education & employment) ---------- */
+  const TL_ICON = {
+    work: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
+    edu:  '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>'
+  };
+  const timelineItemHTML = (item) => {
+    const t = item.type === 'edu' ? 'edu' : 'work';
+    let body = '';
+    if (item.detail) body += '<p class="tl-detail">' + item.detail + '</p>';
+    if (item.bullets && item.bullets.length) {
+      body += '<ul class="tl-bullets">' +
+        item.bullets.map((b) => '<li>' + b + '</li>').join('') + '</ul>';
+    }
+    return '<div class="tl-item tl-' + t + '">' +
+      '<span class="tl-dot" aria-hidden="true">' + TL_ICON[t] + '</span>' +
+      '<div class="tl-card">' +
+        (item.period ? '<span class="tl-period">' + item.period + '</span>' : '') +
+        '<h3 class="tl-role">' + item.role + '</h3>' +
+        (item.org ? '<div class="tl-org">' + item.org + '</div>' : '') +
+        (item.location ? '<div class="tl-loc">' + item.location + '</div>' : '') +
+        body +
+      '</div>' +
+    '</div>';
+  };
+  const renderTimeline = (id, items) => {
+    const el = document.getElementById(id);
+    if (el && items) el.innerHTML =
+      '<div class="timeline">' + items.map(timelineItemHTML).join('') + '</div>';
+  };
   if (typeof EDU_EMP_DATA !== 'undefined') {
-    renderCards('employment-list', EDU_EMP_DATA.employment);
-    renderCards('education-list', EDU_EMP_DATA.education);
+    renderTimeline('employment-list', EDU_EMP_DATA.employment);
+    renderTimeline('education-list', EDU_EMP_DATA.education);
   }
 
   /* ---------- Home page (hero, about, artifacts) ---------- */
