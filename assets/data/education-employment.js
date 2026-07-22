@@ -29,6 +29,33 @@ const EDU_EMP_DATA = {
       "detail": "Security, Search and Observability."
     },
     {
+      "title": "Graduate Research Assistant",
+      "org": "Purdue University",
+      "url": "https://www.cs.purdue.edu/",
+      "domain": "purdue.edu",
+      "logo": "P", "logoColor": "#b1810b",
+      "employmentType": "Full-time",
+      "start": "2026-01", "end": "2026-05",
+      "periodText": "Spring '26",
+      "location": "West Lafayette, IN",
+      "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino."
+    },
+    {
+      "title": "Graduate Teaching Assistant",
+      "org": "Purdue University",
+      "url": "https://www.cs.purdue.edu/",
+      "domain": "purdue.edu",
+      "logo": "P", "logoColor": "#b1810b",
+      "employmentType": "Part-time",
+      "start": "2025-08", "end": "2025-12",
+      "periodText": "Fall '25",
+      "location": "West Lafayette, IN",
+      "detail": "Department of Computer Science.",
+      "bullets": [
+        "CS180: Problem Solving and Object-Oriented Programming"
+      ]
+    },
+    {
       "title": "Applied Scientist Intern",
       "org": "Amazon Web Services (AWS)",
       "url": "https://aws.amazon.com/",
@@ -58,12 +85,12 @@ const EDU_EMP_DATA = {
       "domain": "purdue.edu",
       "logo": "P", "logoColor": "#b1810b",
       "employmentType": "Part-time",
-      "start": "2025-01", "end": "2025-12",
-      "periodText": "Spring '25, Fall '25",
+      "start": "2025-01", "end": "2025-05",
+      "periodText": "Spring '25",
       "location": "West Lafayette, IN",
       "detail": "Department of Computer Science.",
       "bullets": [
-        "CS180: Problem Solving and Object-Oriented Programming (Spring '25, Fall '25)"
+        "CS180: Problem Solving and Object-Oriented Programming"
       ]
     },
     {
@@ -85,8 +112,8 @@ const EDU_EMP_DATA = {
       "domain": "purdue.edu",
       "logo": "P", "logoColor": "#b1810b",
       "employmentType": "Full-time",
-      "start": "2022-08", "end": "2026-05",
-      "periodText": "Fall '22 – Fall '24, Spring '26",
+      "start": "2022-08", "end": "2024-12",
+      "periodText": "Fall '22 – Fall '24",
       "location": "West Lafayette, IN",
       "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino."
     },
