@@ -90,13 +90,16 @@
       body += '<ul class="xp-bullets">' + item.bullets.map((b) => '<li>' + b + '</li>').join('') + '</ul>';
     }
     return '<li class="xp-item' + (ongoing ? ' xp-ongoing' : '') + '">' +
+      '<div class="xp-when">' +
+        '<div class="xp-period">' + period + '</div>' +
+        (dur ? '<div class="xp-dur-line">' + dur + '</div>' : '') +
+        (ongoing ? '<span class="xp-now">Current</span>' : '') +
+      '</div>' +
       '<div class="xp-logo">' + logo + '</div>' +
       '<div class="xp-body">' +
         '<div class="xp-title">' + item.title + cat + '</div>' +
         '<div class="xp-org">' + orgName +
           (item.employmentType ? ' <span class="xp-type">· ' + item.employmentType + '</span>' : '') + '</div>' +
-        '<div class="xp-dates">' + period +
-          (dur ? ' <span class="xp-dur">· ' + dur + '</span>' : '') + '</div>' +
         (item.location ? '<div class="xp-loc">' + item.location + '</div>' : '') +
         body +
       '</div>' +
@@ -110,9 +113,9 @@
       const a = parseYM(p.start), b = parseYM(q.start);
       return (b.y * 12 + b.m) - (a.y * 12 + a.m);
     });
-    el.innerHTML = '<ul class="xp-list">' +
+    el.innerHTML = '<div class="xp-panel"><ul class="xp-list">' +
       sorted.map((it) => expItemHTML(it, it.end === 'present')).join('') +
-    '</ul>';
+    '</ul></div>';
   };
 
   if (typeof EDU_EMP_DATA !== 'undefined') {
