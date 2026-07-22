@@ -66,13 +66,7 @@
     travel: 'Travel Award', grant: 'Grant', scholarship: 'Scholarship', honor: 'Academic Honor'
   };
 
-  const expItemHTML = (item, ongoing) => {
-    const period = item.periodText || (fmtYM(item.start) + ' – ' + fmtYM(item.end));
-    const dur = (!item.category && item.start) ? durationText(item.start, item.end) : '';
-    const cat = item.category
-      ? ' <span class="xp-cat xp-cat-' + item.category + '">' +
-        (AWARD_CAT_LABELS[item.category] || item.category) + '</span>'
-      : '';
+  const logoHTML = (item) => {
     const orgName = item.url ? '<a href="' + item.url + '">' + item.org + '</a>' : item.org;
     const monogram = '<span class="xp-monogram" style="background:' + (item.logoColor || 'var(--ink)') + '">' +
       (item.logo || (item.org || '?').charAt(0)) + '</span>';
@@ -84,23 +78,33 @@
         ' alt="" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">' +
         monogram.replace('class="xp-monogram"', 'class="xp-monogram" style="display:none;background:' + (item.logoColor || 'var(--ink)') + '"')
       : monogram;
+    return { logo: logo, orgName: orgName };
+  };
+
+  /* role text lines; showOrg=false when the org appears as a group header */
+  const roleLinesHTML = (item, ongoing, orgName, showOrg) => {
+    const period = item.periodText || (fmtYM(item.start) + ' – ' + fmtYM(item.end));
+    const dur = (!item.category && item.start) ? durationText(item.start, item.end) : '';
+    const cat = item.category
+      ? ' <span class="xp-cat xp-cat-' + item.category + '">' +
+        (AWARD_CAT_LABELS[item.category] || item.category) + '</span>'
+      : '';
     let body = '';
     if (item.detail) body += '<p class="xp-detail">' + item.detail + '</p>';
     if (item.bullets && item.bullets.length) {
       body += '<ul class="xp-bullets">' + item.bullets.map((b) => '<li>' + b + '</li>').join('') + '</ul>';
     }
-    return '<li class="xp-item' + (ongoing ? ' xp-ongoing' : '') + '">' +
-      '<div class="xp-logo">' + logo + '</div>' +
-      '<div class="xp-body">' +
-        '<div class="xp-title">' + item.title + cat + '</div>' +
-        '<div class="xp-org">' + orgName +
-          (item.employmentType ? ' <span class="xp-type">· ' + item.employmentType + '</span>' : '') + '</div>' +
-        '<div class="xp-dates">' + period +
-          (dur ? ' <span class="xp-dur">· ' + dur + '</span>' : '') + '</div>' +
-        (item.location ? '<div class="xp-loc">' + item.location + '</div>' : '') +
-        body +
-      '</div>' +
-    '</li>';
+    const orgLine = showOrg
+      ? '<div class="xp-org">' + orgName +
+          (item.employmentType ? ' <span class="xp-type">· ' + item.employmentType + '</span>' : '') + '</div>'
+      : (item.employmentType ? '<div class="xp-org"><span class="xp-type">' + item.employmentType + '</span></div>' : '');
+    return '<div class="xp-title">' + item.title + cat + '</div>' +
+      orgLine +
+      '<div class="xp-dates">' + period +
+        (dur ? ' <span class="xp-dur">· ' + dur + '</span>' : '') +
+        (ongoing ? ' <span class="xp-now">Current</span>' : '') + '</div>' +
+      (item.location ? '<div class="xp-loc">' + item.location + '</div>' : '') +
+      body;
   };
 
   const renderExperience = (id, items) => {
@@ -110,9 +114,41 @@
       const a = parseYM(p.start), b = parseYM(q.start);
       return (b.y * 12 + b.m) - (a.y * 12 + a.m);
     });
-    el.innerHTML = '<ul class="xp-list">' +
-      sorted.map((it) => expItemHTML(it, it.end === 'present')).join('') +
-    '</ul>';
+    /* group consecutive entries that share the same org (LinkedIn-style) */
+    const groups = [];
+    sorted.forEach((it) => {
+      const last = groups[groups.length - 1];
+      if (last && last.org === it.org) last.items.push(it);
+      else groups.push({ org: it.org, items: [it] });
+    });
+    el.innerHTML = '<ul class="xp-list">' + groups.map((g) => {
+      const first = g.items[0];
+      const parts = logoHTML(first);
+      const groupOngoing = g.items.some((it) => it.end === 'present');
+      if (g.items.length === 1) {
+        return '<li class="xp-item' + (groupOngoing ? ' xp-ongoing' : '') + '">' +
+          '<div class="xp-logo-col"><div class="xp-logo">' + parts.logo + '</div></div>' +
+          '<div class="xp-body">' +
+            roleLinesHTML(first, first.end === 'present', parts.orgName, true) +
+          '</div>' +
+        '</li>';
+      }
+      /* multi-role institution: one logo, org header, roles joined by a sub-rail */
+      return '<li class="xp-item xp-grouped' + (groupOngoing ? ' xp-ongoing' : '') + '">' +
+        '<div class="xp-logo-col"><div class="xp-logo">' + parts.logo + '</div></div>' +
+        '<div class="xp-body">' +
+          '<div class="xp-group-org">' + parts.orgName +
+            '<span class="xp-rolecount">' + g.items.length + ' roles</span></div>' +
+          '<ul class="xp-roles">' + g.items.map((it) =>
+            '<li class="xp-subrole"><span class="xp-subdot" aria-hidden="true"></span>' +
+              '<div class="xp-subrole-body">' +
+                roleLinesHTML(it, it.end === 'present', parts.orgName, false) +
+              '</div>' +
+            '</li>'
+          ).join('') + '</ul>' +
+        '</div>' +
+      '</li>';
+    }).join('') + '</ul>';
   };
 
   if (typeof EDU_EMP_DATA !== 'undefined') {
