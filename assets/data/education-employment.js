@@ -1,55 +1,95 @@
 /* Education & employment data — edit this file to add/update entries.
-   Fields: role, org (may contain HTML links), location, period, type ("work"|"edu"),
-   detail (optional string, may contain HTML), bullets (optional array).
-   Entries render as a timeline in the order listed (newest first). */
+
+   EDUCATION entries (timeline): role, org, location, period, type:"edu", detail?, bullets?
+
+   EMPLOYMENT is grouped by company (LinkedIn-style). Each company has:
+     company, logo (1–2 letter monogram), logoColor (hex), location?, url?
+     roles: [ { title, employmentType, period, detail?, bullets? } ]
+   A company with multiple roles renders them stacked under one logo. */
 const EDU_EMP_DATA = {
   "employment": [
     {
-      "role": "Applied Scientist Intern",
-      "org": "Amazon Web Services (AWS)",
+      "company": "Amazon Web Services (AWS)",
+      "logo": "aws",
+      "logoColor": "#ff9900",
       "location": "Boston, MA & New York, NY",
-      "period": "Summer '24 – '26",
-      "type": "work",
-      "detail": "Security Analytics and AI Research (SAAR), Boston — Summer '24 & '25. Security, Search and Observability, New York — Summer '26 (May – August)."
-    },
-    {
-      "role": "Amazon Campus Brand Ambassador (CBA)",
-      "org": "Amazon",
-      "location": "Purdue University",
-      "period": "Mar 2025 – Present",
-      "type": "work"
-    },
-    {
-      "role": "Graduate Research Assistant",
-      "org": "Cyber2SLab, Department of Computer Science, Purdue University",
-      "location": "West Lafayette, IN",
-      "period": "Fall '22 – Fall '24, Spring '26",
-      "type": "work"
-    },
-    {
-      "role": "Graduate Teaching Assistant",
-      "org": "Department of Computer Science, Purdue University",
-      "location": "West Lafayette, IN",
-      "period": "Spring '25, Fall '25",
-      "type": "work",
-      "bullets": [
-        "CS180: Problem Solving and Object-Oriented Programming (Spring '25, Fall '25)"
+      "url": "https://aws.amazon.com/",
+      "roles": [
+        {
+          "title": "Applied Scientist Intern",
+          "employmentType": "Internship",
+          "period": "Summer '24 – Summer '26",
+          "detail": "Security Analytics and AI Research (SAAR), Boston (Summer '24 & '25). Security, Search and Observability, New York (Summer '26, May – Aug)."
+        }
       ]
     },
     {
-      "role": "Machine Learning Engineer",
-      "org": "Advanced Chemical Industries (<a href=\"https://www.aci-bd.com/\">ACI</a>) Ltd.",
-      "location": "Dhaka, Bangladesh",
-      "period": "Sep 2020 – Aug 2022",
-      "type": "work",
-      "detail": "Management Information System (MIS)."
+      "company": "Amazon",
+      "logo": "a",
+      "logoColor": "#232f3e",
+      "location": "Purdue University · West Lafayette, IN",
+      "url": "https://www.amazon.com/",
+      "roles": [
+        {
+          "title": "Campus Brand Ambassador (CBA)",
+          "employmentType": "Part-time",
+          "period": "Mar 2025 – Present"
+        }
+      ]
     },
     {
-      "role": "Undergraduate Research Assistant",
-      "org": "<a href=\"https://www.researchgate.net/lab/Rifat-Shahriyar-Lab\">Rifat Shahriyar's Lab</a>, <a href=\"https://cse.buet.ac.bd/\">Dept. of CSE</a>, BUET",
+      "company": "Purdue University",
+      "logo": "P",
+      "logoColor": "#b1810b",
+      "location": "West Lafayette, IN",
+      "url": "https://www.cs.purdue.edu/",
+      "roles": [
+        {
+          "title": "Graduate Teaching Assistant",
+          "employmentType": "Part-time",
+          "period": "Spring '25, Fall '25",
+          "detail": "Department of Computer Science.",
+          "bullets": [
+            "CS180: Problem Solving and Object-Oriented Programming (Spring '25, Fall '25)"
+          ]
+        },
+        {
+          "title": "Graduate Research Assistant",
+          "employmentType": "Full-time",
+          "period": "Fall '22 – Fall '24, Spring '26",
+          "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino."
+        }
+      ]
+    },
+    {
+      "company": "Advanced Chemical Industries (ACI) Ltd.",
+      "logo": "ACI",
+      "logoColor": "#c8102e",
       "location": "Dhaka, Bangladesh",
-      "period": "Mar 2019 – Sep 2020",
-      "type": "work"
+      "url": "https://www.aci-bd.com/",
+      "roles": [
+        {
+          "title": "Machine Learning Engineer",
+          "employmentType": "Full-time",
+          "period": "Sep 2020 – Aug 2022",
+          "detail": "Management Information System (MIS). NLP R&D, predictive analytics, chatbot and web development."
+        }
+      ]
+    },
+    {
+      "company": "Bangladesh University of Engineering and Technology (BUET)",
+      "logo": "B",
+      "logoColor": "#00539b",
+      "location": "Dhaka, Bangladesh",
+      "url": "https://cse.buet.ac.bd/",
+      "roles": [
+        {
+          "title": "Undergraduate Research Assistant",
+          "employmentType": "Research",
+          "period": "Mar 2019 – Sep 2020",
+          "detail": "Rifat Shahriyar's Lab, Department of CSE. Multilingual NLP research."
+        }
+      ]
     }
   ],
   "education": [

@@ -85,7 +85,47 @@
       '<div class="timeline">' + items.map(timelineItemHTML).join('') + '</div>';
   };
   if (typeof EDU_EMP_DATA !== 'undefined') {
-    renderTimeline('employment-list', EDU_EMP_DATA.employment);
+    /* Employment: LinkedIn-style, grouped by company */
+    const empEl = document.getElementById('employment-list');
+    if (empEl && EDU_EMP_DATA.employment) {
+      empEl.innerHTML = '<ul class="exp-list">' + EDU_EMP_DATA.employment.map((c) => {
+        const multi = c.roles.length > 1;
+        const companyName = c.url
+          ? '<a href="' + c.url + '">' + c.company + '</a>'
+          : c.company;
+        const roles = c.roles.map((r) =>
+          '<li class="exp-role' + (multi ? ' is-sub' : '') + '">' +
+            (multi ? '<span class="exp-subdot" aria-hidden="true"></span>' : '') +
+            '<div class="exp-role-body">' +
+              '<div class="exp-title">' + r.title + '</div>' +
+              '<div class="exp-meta">' +
+                (multi ? '' : '<span class="exp-company">' + companyName + '</span> · ') +
+                '<span class="exp-type">' + (r.employmentType || '') + '</span>' +
+              '</div>' +
+              '<div class="exp-dates">' + (r.period || '') +
+                (c.location ? ' · ' + c.location : '') + '</div>' +
+              (r.detail ? '<p class="exp-detail">' + r.detail + '</p>' : '') +
+              (r.bullets && r.bullets.length
+                ? '<ul class="exp-bullets">' + r.bullets.map((b) => '<li>' + b + '</li>').join('') + '</ul>'
+                : '') +
+            '</div>' +
+          '</li>'
+        ).join('');
+        return '<li class="exp-company-item">' +
+          '<div class="exp-logo" style="background:' + (c.logoColor || 'var(--ink)') + '">' +
+            '<span>' + (c.logo || c.company.charAt(0)) + '</span>' +
+          '</div>' +
+          '<div class="exp-content">' +
+            (multi
+              ? '<div class="exp-company-head">' + companyName +
+                  '<span class="exp-rolecount">' + c.roles.length + ' roles</span></div>'
+              : '') +
+            '<ul class="exp-roles' + (multi ? ' has-rail' : '') + '">' + roles + '</ul>' +
+          '</div>' +
+        '</li>';
+      }).join('') + '</ul>';
+    }
+    /* Education: timeline */
     renderTimeline('education-list', EDU_EMP_DATA.education);
   }
 
