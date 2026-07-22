@@ -133,12 +133,24 @@
     }
     const rolesEl = document.getElementById('home-roles');
     if (rolesEl) {
-      rolesEl.innerHTML = HOME_DATA.roles.map((r) =>
-        '<div class="role-card">' +
-          '<div class="org">' + r.org + '</div>' +
-          '<div class="detail">' + r.detail + '</div>' +
-        '</div>'
-      ).join('');
+      rolesEl.innerHTML = HOME_DATA.roles.map((r) => {
+        const mono = '<span class="xp-monogram" style="display:none;background:' + (r.logoColor || 'var(--ink)') + '">' +
+          (r.logo || (r.org || '?').charAt(0)) + '</span>';
+        const imgSrc = r.logoSrc
+          ? r.logoSrc
+          : (r.domain ? 'https://www.google.com/s2/favicons?domain=' + r.domain + '&sz=64' : null);
+        const tile = imgSrc
+          ? '<div class="role-logo"><img class="xp-logo-img' + (r.logoSrc ? ' xp-logo-full' : '') + '" src="' + imgSrc + '"' +
+            ' alt="" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">' + mono + '</div>'
+          : '';
+        return '<div class="role-card' + (tile ? ' has-logo' : '') + '">' +
+          tile +
+          '<div class="role-text">' +
+            '<div class="org">' + r.org + '</div>' +
+            '<div class="detail">' + r.detail + '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
     }
     const sectionsEl = document.getElementById('home-sections');
     if (sectionsEl) {
