@@ -46,7 +46,7 @@ const EDU_EMP_DATA = {
       "location": "West Lafayette, IN",
       "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino.",
       "bullets": [
-        "Extended network-side fake-base-station defense toward 5G/ORAN deployments by building physics-guided and heuristics-based detection pipelines evaluated on lab and real-network datasets."
+        "..."
       ]
     },
     {
