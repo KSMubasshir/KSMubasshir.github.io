@@ -760,77 +760,17 @@ footer a:hover { color: #fff; }
 .news-empty { color: var(--muted); font-style: italic; padding: 14px 4px; }
 
 /* ============================================================
-   Award grid
-   ============================================================ */
-.award-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 16px; margin-top: 8px;
-}
-.award-card {
-  position: relative; background: var(--card); border: 1px solid var(--line);
-  border-radius: 12px; padding: 20px; overflow: hidden;
-  transition: box-shadow .15s, transform .15s, border-color .15s;
-}
-.award-card::before {
-  content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--teal);
-}
-.award-card:hover {
-  box-shadow: 0 6px 18px rgba(13,27,42,.10); transform: translateY(-2px); border-color: #cfe0dd;
-}
-.award-medal {
-  color: var(--teal-dim); background: #eef4f3;
-  width: 40px; height: 40px; border-radius: 10px;
-  display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
-}
-.award-year {
-  position: absolute; top: 16px; right: 16px;
-  font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
-  background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 1px 8px;
-}
-.award-title {
-  font-family: var(--display); font-size: 1.02rem; font-weight: 600;
-  color: var(--ink); margin: 0 0 4px; line-height: 1.3;
-}
-.award-org { font-size: 0.88rem; color: var(--muted); }
-
-@media (max-width: 720px) {
-  .award-grid { grid-template-columns: 1fr; }
-}
-
-
-/* ============================================================
    Experience timeline (employment & education, LinkedIn-style)
    ============================================================ */
 .xp-list { list-style: none; margin: 8px 0; padding: 0; }
 .xp-item {
   display: grid;
-  grid-template-columns: 18px 48px 1fr;
+  grid-template-columns: 48px 1fr;
   gap: 0 14px;
   padding: 0 0 26px;
   position: relative;
 }
 .xp-item:last-child { padding-bottom: 6px; }
-
-/* duration rail: node dot + bar spanning the entry's height */
-.xp-rail { position: relative; }
-.xp-node {
-  position: absolute;
-  left: 3px; top: 16px;
-  width: 12px; height: 12px;
-  border-radius: 50%;
-  background: var(--card);
-  border: 3px solid var(--teal);
-  z-index: 1;
-}
-.xp-ongoing .xp-node { background: var(--teal); box-shadow: 0 0 0 4px rgba(31,158,147,.18); }
-.xp-bar {
-  position: absolute;
-  left: 8px; top: 32px; bottom: -12px;
-  width: 3px;
-  border-radius: 2px;
-  background: linear-gradient(var(--teal) 0%, #bcd9d5 100%);
-}
-.xp-item:last-child .xp-bar { bottom: 8px; background: linear-gradient(var(--teal) 0%, transparent 100%); }
 
 .xp-logo {
   width: 48px; height: 48px;
@@ -882,7 +822,29 @@ footer a:hover { color: #fff; }
 .xp-bullets li { font-size: 0.9rem; color: var(--muted); margin-bottom: 4px; }
 
 @media (max-width: 480px) {
-  .xp-item { grid-template-columns: 14px 40px 1fr; gap: 0 10px; }
+  .xp-item { grid-template-columns: 40px 1fr; gap: 0 10px; }
   .xp-logo { width: 40px; height: 40px; }
   .xp-logo-img { width: 26px; height: 26px; }
 }
+
+/* ---------- Full-image logos & award category chips ---------- */
+.xp-logo-full { width: 40px; height: 40px; }
+
+.xp-cat {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid;
+  padding: 1px 7px;
+  margin-left: 8px;
+  vertical-align: 2px;
+  white-space: nowrap;
+}
+.xp-cat-travel      { color: #1d5d8f; border-color: #a9cbe6; background: #eaf3fa; }
+.xp-cat-grant       { color: #0f6e66; border-color: #9ed4cd; background: #e8f6f4; }
+.xp-cat-scholarship { color: #8a6100; border-color: #e3c980; background: #fdf6e3; }
+.xp-cat-honor       { color: #7a3e8f; border-color: #d8b3e4; background: #f8effb; }

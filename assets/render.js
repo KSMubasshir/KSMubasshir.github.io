@@ -41,20 +41,6 @@
     if (el && items) el.innerHTML = items.map(cardHTML).join('');
   };
 
-  if (typeof AWARDS_DATA !== 'undefined') {
-    const el = document.getElementById('awards-list');
-    if (el) el.innerHTML = '<div class="award-grid">' + AWARDS_DATA.map((a) =>
-      '<div class="award-card">' +
-        (a.year ? '<span class="award-year">' + a.year + '</span>' : '') +
-        '<div class="award-medal" aria-hidden="true">' +
-          '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg>' +
-        '</div>' +
-        '<h3 class="award-title">' + a.title + '</h3>' +
-        (a.org ? '<div class="award-org">' + a.org + '</div>' : '') +
-      '</div>'
-    ).join('') + '</div>';
-  }
-
   /* ---------- LinkedIn-style experience timeline (employment & education) ---------- */
   const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const parseYM = (s) => {
@@ -76,14 +62,25 @@
     return parts.join(' ') || '1 mo';
   };
 
+  const AWARD_CAT_LABELS = {
+    travel: 'Travel Award', grant: 'Grant', scholarship: 'Scholarship', honor: 'Academic Honor'
+  };
+
   const expItemHTML = (item, ongoing) => {
     const period = item.periodText || (fmtYM(item.start) + ' – ' + fmtYM(item.end));
-    const dur = item.start ? durationText(item.start, item.end) : '';
+    const dur = (!item.category && item.start) ? durationText(item.start, item.end) : '';
+    const cat = item.category
+      ? ' <span class="xp-cat xp-cat-' + item.category + '">' +
+        (AWARD_CAT_LABELS[item.category] || item.category) + '</span>'
+      : '';
     const orgName = item.url ? '<a href="' + item.url + '">' + item.org + '</a>' : item.org;
     const monogram = '<span class="xp-monogram" style="background:' + (item.logoColor || 'var(--ink)') + '">' +
       (item.logo || (item.org || '?').charAt(0)) + '</span>';
-    const logo = item.domain
-      ? '<img class="xp-logo-img" src="https://www.google.com/s2/favicons?domain=' + item.domain + '&sz=64"' +
+    const imgSrc = item.logoSrc
+      ? item.logoSrc
+      : (item.domain ? 'https://www.google.com/s2/favicons?domain=' + item.domain + '&sz=64' : null);
+    const logo = imgSrc
+      ? '<img class="xp-logo-img' + (item.logoSrc ? ' xp-logo-full' : '') + '" src="' + imgSrc + '"' +
         ' alt="" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">' +
         monogram.replace('class="xp-monogram"', 'class="xp-monogram" style="display:none;background:' + (item.logoColor || 'var(--ink)') + '"')
       : monogram;
@@ -93,10 +90,9 @@
       body += '<ul class="xp-bullets">' + item.bullets.map((b) => '<li>' + b + '</li>').join('') + '</ul>';
     }
     return '<li class="xp-item' + (ongoing ? ' xp-ongoing' : '') + '">' +
-      '<div class="xp-rail" aria-hidden="true"><span class="xp-node"></span><span class="xp-bar"></span></div>' +
       '<div class="xp-logo">' + logo + '</div>' +
       '<div class="xp-body">' +
-        '<div class="xp-title">' + item.title + '</div>' +
+        '<div class="xp-title">' + item.title + cat + '</div>' +
         '<div class="xp-org">' + orgName +
           (item.employmentType ? ' <span class="xp-type">· ' + item.employmentType + '</span>' : '') + '</div>' +
         '<div class="xp-dates">' + period +
@@ -115,13 +111,16 @@
       return (b.y * 12 + b.m) - (a.y * 12 + a.m);
     });
     el.innerHTML = '<ul class="xp-list">' +
-      sorted.map((it) => expItemHTML(it, it.end === 'present' || !it.end)).join('') +
+      sorted.map((it) => expItemHTML(it, it.end === 'present')).join('') +
     '</ul>';
   };
 
   if (typeof EDU_EMP_DATA !== 'undefined') {
     renderExperience('employment-list', EDU_EMP_DATA.employment);
     renderExperience('education-list', EDU_EMP_DATA.education);
+  }
+  if (typeof AWARDS_DATA !== 'undefined') {
+    renderExperience('awards-list', AWARDS_DATA);
   }
 
   /* ---------- Home page (hero, about, artifacts) ---------- */
