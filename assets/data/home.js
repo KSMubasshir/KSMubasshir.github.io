@@ -5,7 +5,7 @@ const HOME_DATA = {
     { "label": "LinkedIn", "url": "https://www.linkedin.com/in/kazi-samin-mubasshir/", "domain": "linkedin.com" },
     { "label": "Twitter", "url": "https://twitter.com/MubasshirSamin", "domain": "twitter.com" },
     { "label": "GitHub", "url": "https://github.com/KSMubasshir", "domain": "github.com" },
-    { "label": "CV", "url": "assets/kazi_academic_cv.pdf", "icon": "doc" }
+    { "label": "CV", "url": "cv.html", "icon": "doc" }
   ],
   "roles": [
     {
