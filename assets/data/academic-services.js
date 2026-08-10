@@ -21,7 +21,8 @@ const SERVICES_DATA = [
     "items": [
       { "name": "IEEE Transactions on Mobile Computing (IEEE TMC)" },
       { "name": "IEEE Communications Magazine (IEEE COMMAG)" },
-      { "name": "IEEE Transactions on Networking (IEEE TON)" }
+      { "name": "IEEE Transactions on Networking (IEEE TON)" },
+      { "name": "IEEE Transactions on Dependable and Secure Computing (IEEE TDSC)" }
     ]
   },
   {

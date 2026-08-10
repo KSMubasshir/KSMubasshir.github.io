@@ -3,12 +3,12 @@
    "tag" renders as a colored chip; valid tags: paper, talk, conference, pc, service, award,
    internship, milestone, media (see NEWS_TAGS in render.js / .ntag- styles in style.css). */
 const NEWS_DATA = [
-  { "date": "Aug 2026", "year": 2026, "tag": "pc",         "text": "Invited to serve on the Program Committee of NDSS 2027!" },
-  { "date": "Jun 2026", "year": 2026, "tag": "pc",         "text": "Invited to serve on the Program Committee of USENIX Security 2027!" },
+  { "date": "Aug 2026", "year": 2026, "tag": "pc",         "text": "Invited to serve on the Program Committee of the Network and Distributed System Security Symposium (NDSS) 2027!" },
+  { "date": "Jun 2026", "year": 2026, "tag": "pc",         "text": "Invited to serve on the Program Committee of the USENIX Security Symposium 2027!" },
   { "date": "Jun 2026", "year": 2026, "tag": "conference", "text": "Accepted to the <a href=\"https://aisummit.acm.org/\">ACM AI Summit</a> Doctoral Consortium 2026 in Atlanta, Georgia!" },
   { "date": "May 2026", "year": 2026, "tag": "internship", "text": "Returned to Amazon Web Services (AWS) as an Applied Scientist Intern for Summer '26, this time in New York!" },
   { "date": "May 2026", "year": 2026, "tag": "milestone",  "text": "Passed my preliminary exam and officially became a Ph.D. candidate!" },
-  { "date": "Apr 2026", "year": 2026, "tag": "pc",         "text": "Invited to serve on the Program Committee of RAID 2026!" },
+  { "date": "Apr 2026", "year": 2026, "tag": "pc",         "text": "Invited to serve on the Program Committee of the International Symposium on Research in Attacks, Intrusions and Defenses (RAID) 2026!" },
   { "date": "Dec 2025", "year": 2025, "tag": "paper",      "text": "VWAttacker accepted to INFOCOM!" },
   { "date": "Nov 2025", "year": 2025, "tag": "service",    "text": "Started working as Web Chair for NextG-Sec 2026, co-located with ACNS 2026." },
   { "date": "Aug 2025", "year": 2025, "tag": "talk",       "text": "Presented <a href=\"https://fbsdetector.github.io/\">FBSDetector</a> at the 34th USENIX Security Symposium in Seattle!" },
