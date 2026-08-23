@@ -17,6 +17,22 @@
 const EDU_EMP_DATA = {
   "employment": [
     {
+      "title": "Graduate Research Assistant",
+      "org": "Purdue University",
+      "url": "https://www.cs.purdue.edu/",
+      "domain": "purdue.edu",
+      "logo": "P",
+      "logoColor": "#b1810b",
+      "start": "2026-08",
+      "end": "2026-12",
+      "periodText": "Fall '26",
+      "location": "West Lafayette, IN",
+      "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino.",
+      "bullets": [
+        "Working on AI for Cellular Network Security."
+      ]
+    },
+    {
       "title": "Applied Scientist Intern",
       "org": "Amazon Web Services (AWS)",
       "url": "https://aws.amazon.com/",
