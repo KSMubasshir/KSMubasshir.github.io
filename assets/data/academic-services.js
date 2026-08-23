@@ -34,6 +34,7 @@ const SERVICES_DATA = [
   {
     "role": "Conference Reviewer (External)",
     "items": [
+      { "name": "IEEE International Conference on Computer Communications (INFOCOM)", "years": "2027" },
       { "name": "IEEE Symposium on Security and Privacy (IEEE S&amp;P)", "years": "2025, 2026" },
       { "name": "USENIX Security Symposium (USENIX-Sec)", "years": "2026" },
       { "name": "ACM Conference on Computer and Communications Security (CCS)", "years": "2025" },
