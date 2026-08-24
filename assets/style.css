@@ -932,6 +932,70 @@ footer a:hover { color: #fff; }
   font-weight: 400;
 }
 
+/* ---------- Employment summary (companies at a glance) ---------- */
+.emp-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 8px 0 30px;
+}
+.emp-summary-card {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(13,27,42,.06);
+}
+.emp-summary-logo {
+  flex: 0 0 40px;
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.emp-summary-logo .xp-logo-img { width: 26px; height: 26px; }
+.emp-summary-logo .xp-logo-full { width: 34px; height: 34px; }
+.emp-summary-body { min-width: 0; }
+.emp-summary-org {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+.emp-summary-org a { color: var(--ink); border-bottom-color: transparent; }
+.emp-summary-org a:hover { color: var(--teal-dim); border-bottom-color: var(--teal); }
+.emp-summary-span {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.emp-summary-titles {
+  font-size: 0.84rem;
+  color: var(--text);
+  margin-top: 6px;
+}
+.emp-summary-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+.emp-topic {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.04em;
+  color: var(--teal-dim);
+  background: #edf7f5;
+  border: 1px solid #b9dfda;
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
 /* roles under one institution, joined by a sub-rail */
 .xp-roles {
   list-style: none;

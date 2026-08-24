@@ -13,7 +13,8 @@
      periodText      optional display override for the date range
      location        city/campus
      detail          optional sentence (may contain HTML)
-     bullets         optional array of strings */
+     bullets         optional array of strings
+     topics          optional array of short work-topic tags (employment only; feeds the summary panel) */
 const EDU_EMP_DATA = {
   "employment": [
     {
@@ -30,7 +31,8 @@ const EDU_EMP_DATA = {
       "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino.",
       "bullets": [
         "Working on AI for Cellular Network Security."
-      ]
+      ],
+      "topics": ["Cellular Network Security", "AI/ML"]
     },
     {
       "title": "Applied Scientist Intern",
@@ -47,7 +49,8 @@ const EDU_EMP_DATA = {
       "detail": "Security, Search and Observability.",
       "bullets": [
         "Developing agentic AI methods that automate security triage workflows over large-scale search and observability data, reducing manual analyst effort."
-      ]
+      ],
+      "topics": ["Agentic AI", "Security Analytics"]
     },
     {
       "title": "Graduate Research Assistant",
@@ -64,7 +67,8 @@ const EDU_EMP_DATA = {
       "bullets": [
         "Contributed to VWAttacker, a systematic security-testing framework for Voice-over-WiFi user equipment that uncovered downgrade, information-leakage, and denial-of-service weaknesses across commercial devices (IEEE INFOCOM 2026).",
         "Co-authored work that turns feature-attribution explanations of 5G anomaly-detection models into concrete, actionable mitigation steps for analysts (IEEE ICNC 2026)."
-      ]
+      ],
+      "topics": ["Cellular Network Security", "AI/ML"]
     },
     {
       "title": "Graduate Teaching Assistant",
@@ -97,7 +101,8 @@ const EDU_EMP_DATA = {
       "detail": "Security Analytics and AI Research (SAAR).",
       "bullets": [
         "Designed an LLM-based approach for automatically identifying high-severity vulnerability classes in cloud environments without requiring labeled training data, achieving high accuracy and consistency in evaluations."
-      ]
+      ],
+      "topics": ["LLM Security", "Cloud Security"]
     },
     {
       "title": "Graduate Teaching Assistant",
@@ -129,7 +134,8 @@ const EDU_EMP_DATA = {
       "detail": "Cyber2SLab, Department of Computer Science. Advised by Prof. Elisa Bertino.",
       "bullets": [
         "Completed large-scale evaluations and open-source artifacts for FBSDetector, showing high-accuracy, low-false-positive detection that runs on commodity devices, leading to a USENIX Security 2025 paper (joint first author)."
-      ]
+      ],
+      "topics": ["Cellular Network Security", "AI/ML"]
     },
     {
       "title": "Applied Scientist Intern",
@@ -146,7 +152,8 @@ const EDU_EMP_DATA = {
       "detail": "Security Analytics and AI Research (SAAR), External Security Services (ESS).",
       "bullets": [
         "Built an LLM-based research prototype that augments security investigations with relevant context retrieved in real time from cloud data sources."
-      ]
+      ],
+      "topics": ["LLM Security", "Retrieval-Augmented Generation"]
     },
     {
       "title": "Graduate Research Assistant",
@@ -163,7 +170,8 @@ const EDU_EMP_DATA = {
       "bullets": [
         "Built FBSDetector, an ML system that detects fake base stations and the multi-step attacks they launch directly from LTE/5G network traces, by curating a large labeled trace dataset and engineering stateful protocol features, published at USENIX Security 2025 (joint first author).",
         "Co-created SPEC5G, the first public NLP dataset for 5G protocol analysis (3.5M+ sentences from specification documents), enabling automated security text classification and summarization, published at IJCNLP-AACL 2023."
-      ]
+      ],
+      "topics": ["Cellular Network Security", "AI/ML", "Natural Language Processing"]
     },
     {
       "title": "Machine Learning Engineer",
@@ -181,7 +189,8 @@ const EDU_EMP_DATA = {
         "Shipped customer-purchase prediction models (lapsed-customer and next-purchase-amount) that guided retail business decisions, collaborating with a ten-person MIS analytics team.",
         "Built a speech-to-sentiment pipeline for the ACI call center, automating customer sentiment analysis and FAQ mining.",
         "Forecast Yamaha motorbike warranty claims to guide inventory planning and show results in a business dashboard using Python and Django as backend."
-      ]
+      ],
+      "topics": ["Predictive Analytics", "Natural Language Processing"]
     },
     {
       "title": "Undergraduate Research Assistant",
@@ -199,7 +208,8 @@ const EDU_EMP_DATA = {
       "bullets": [
         "Helped build the largest Bengali–English parallel corpus to date via novel aligner-ensembling and batch-filtering techniques, achieving substantial BLEU improvements over prior translation systems, published at EMNLP 2020.",
         "Co-authored BanglaBERT, a Bangla language model that set a new state of the art on Bangla language-understanding benchmarks (NAACL 2022), and XL-Sum, a 1M-article abstractive summarization dataset covering 44 languages (ACL-IJCNLP 2021)."
-      ]
+      ],
+      "topics": ["Natural Language Processing", "Machine Translation"]
     }
   ],
   "education": [

@@ -10,7 +10,7 @@ const HOME_DATA = {
   "roles": [
     {
       "org": "Purdue University: Ph.D. Candidate (Fall '22 – Spring '27)",
-      "detail": "Graduate Teaching Assistant (Spring '25, Fall '25) · Graduate Research Assistant (Fall '22 – Fall '24) · Department of Computer Science",
+      "detail": "Graduate Research Assistant (Fall '22 – Fall '24, Spring '26, Fall '26) <br> Graduate Teaching Assistant (Spring '25, Fall '25) <br> Department of Computer Science",
       "domain": "purdue.edu", "logo": "P", "logoColor": "#b1810b"
     },
     {

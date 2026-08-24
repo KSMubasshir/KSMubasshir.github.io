@@ -151,7 +151,49 @@
     }).join('') + '</ul>';
   };
 
+  /* ---------- Employment summary (companies at a glance) ---------- */
+  const renderEmploymentSummary = (id, items) => {
+    const el = document.getElementById(id);
+    if (!el || !items) return;
+    const groups = [];
+    items.forEach((it) => {
+      let g = groups.find((x) => x.org === it.org);
+      if (!g) { g = { org: it.org, first: it, items: [] }; groups.push(g); }
+      g.items.push(it);
+    });
+    groups.sort((a, b) => {
+      const av = a.items.reduce((m, it) => Math.max(m, parseYM(it.end).y * 12 + parseYM(it.end).m), 0);
+      const bv = b.items.reduce((m, it) => Math.max(m, parseYM(it.end).y * 12 + parseYM(it.end).m), 0);
+      return bv - av;
+    });
+    el.innerHTML = groups.map((g) => {
+      const parts = logoHTML(g.first);
+      const titles = [];
+      g.items.forEach((it) => { if (titles.indexOf(it.title) === -1) titles.push(it.title); });
+      const topics = [];
+      g.items.forEach((it) => (it.topics || []).forEach((t) => { if (topics.indexOf(t) === -1) topics.push(t); }));
+      const ongoing = g.items.some((it) => it.end === 'present' && !it.hideCurrent);
+      const starts = g.items.map((it) => parseYM(it.start).y * 12 + parseYM(it.start).m);
+      const ends = g.items.map((it) => parseYM(it.end).y * 12 + parseYM(it.end).m);
+      const earliest = g.items[starts.indexOf(Math.min.apply(null, starts))];
+      const latest = g.items[ends.indexOf(Math.max.apply(null, ends))];
+      const span = fmtYM(earliest.start) + ' – ' + (ongoing ? 'Present' : fmtYM(latest.end));
+      return '<div class="emp-summary-card">' +
+        '<div class="emp-summary-logo">' + parts.logo + '</div>' +
+        '<div class="emp-summary-body">' +
+          '<div class="emp-summary-org">' + parts.orgName + '</div>' +
+          '<div class="emp-summary-span">' + span + '</div>' +
+          '<div class="emp-summary-titles">' + titles.join(' · ') + '</div>' +
+          (topics.length
+            ? '<div class="emp-summary-topics">' + topics.map((t) => '<span class="emp-topic">' + t + '</span>').join('') + '</div>'
+            : '') +
+        '</div>' +
+      '</div>';
+    }).join('');
+  };
+
   if (typeof EDU_EMP_DATA !== 'undefined') {
+    renderEmploymentSummary('employment-summary', EDU_EMP_DATA.employment);
     renderExperience('employment-list', EDU_EMP_DATA.employment);
     renderExperience('education-list', EDU_EMP_DATA.education);
   }
