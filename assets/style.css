@@ -511,7 +511,7 @@ footer a:hover { color: #fff; }
 
 .pub-table-head {
   display: grid;
-  grid-template-columns: 1fr 84px 64px;
+  grid-template-columns: 1fr 64px;
   gap: 16px;
   padding: 8px 20px;
   margin-bottom: 14px;
@@ -544,7 +544,7 @@ footer a:hover { color: #fff; }
 
 .pub-row {
   display: grid;
-  grid-template-columns: 1fr 84px 64px;
+  grid-template-columns: 1fr 64px;
   gap: 16px;
   padding: 18px 20px;
   background: var(--card);
@@ -679,15 +679,6 @@ footer a:hover { color: #fff; }
   text-align: right;
 }
 
-.pub-row .cited {
-  font-family: var(--mono);
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--teal-dim);
-  text-align: right;
-  padding-top: 2px;
-}
-.pub-row .cited small { display:block; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; }
 .pub-row .year {
   font-family: var(--mono);
   font-size: 0.92rem;
@@ -700,7 +691,7 @@ footer a:hover { color: #fff; }
   .pub-table-head { display: flex; justify-content: flex-end; gap: 18px; }
   .pub-table-head > span { display: none; }
   .pub-row { grid-template-columns: 1fr; gap: 8px; }
-  .pub-row .cited, .pub-row .year { text-align: left; }
+  .pub-row .year { text-align: left; }
 }
 
 /* ---------- News tag chips ---------- */

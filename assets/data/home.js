@@ -9,14 +9,14 @@ const HOME_DATA = {
   ],
   "roles": [
     {
-      "org": "AWS — Applied Scientist Intern (Summer '24, '25, '26)",
-      "detail": "Security Analytics and AI Research (SAAR), Boston, MA ('24, '25)<br>Security, Search and Observability, New York, NY ('26)",
-      "domain": "aws.amazon.com", "logo": "aws", "logoColor": "#ff9900"
-    },
-    {
-      "org": "Purdue University — Ph.D. Candidate (Fall '22 – Spring '27)",
+      "org": "Purdue University: Ph.D. Candidate (Fall '22 – Spring '27)",
       "detail": "Graduate Teaching Assistant (Spring '25, Fall '25) · Graduate Research Assistant (Fall '22 – Fall '24) · Department of Computer Science",
       "domain": "purdue.edu", "logo": "P", "logoColor": "#b1810b"
+    },
+    {
+      "org": "AWS: Applied Scientist Intern (Summer '24, '25, '26)",
+      "detail": "Security Analytics and AI Research (SAAR), Boston, MA ('24, '25)<br>Security, Search and Observability, New York, NY ('26)",
+      "domain": "aws.amazon.com", "logo": "aws", "logoColor": "#ff9900"
     }
   ],
   "sections": [

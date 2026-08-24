@@ -339,7 +339,7 @@
   if (statsEl) {
     statsEl.innerHTML = PUBLICATIONS_DATA.stats.map((s) =>
       '<div class="stat"><div class="num">' + s.num + '</div><div class="lbl">' + s.lbl + '</div></div>'
-    ).join('') + '<div class="note">' + PUBLICATIONS_DATA.note + '</div>';
+    ).join('');
   }
 
   const paperHTML = (p) => {
@@ -377,26 +377,17 @@
         '<div class="venue-line">' + p.venue + '</div>' +
         badges + res +
       '</div>' +
-      '<div class="cited">' + (p.citations == null ? '—' : p.citations) + '<small>CITED BY</small></div>' +
       '<div class="year">' + p.year + '</div>' +
       abstract +
     '</div>';
   };
 
-  const state = { key: 'year', dir: -1, topic: null }; /* newest first, all topics */
-
-  const val = (p, key) => key === 'citations' ? (p.citations || 0) : p.year;
+  const state = { dir: -1, topic: null }; /* newest first, all topics */
 
   const renderPapers = () => {
     const papers = PUBLICATIONS_DATA.papers.filter((p) =>
       !state.topic || (p.topics || []).indexOf(state.topic) !== -1
-    ).sort((a, b) => {
-      const av = val(a, state.key), bv = val(b, state.key);
-      if (av !== bv) return (av - bv) * state.dir;
-      /* tie-breaker: the other column, descending */
-      const alt = state.key === 'year' ? 'citations' : 'year';
-      return val(b, alt) - val(a, alt);
-    });
+    ).sort((a, b) => (a.year - b.year) * state.dir);
     pubList.innerHTML = papers.length
       ? papers.map(paperHTML).join('')
       : '<p class="pub-empty">No publications match this topic.</p>';
@@ -443,19 +434,9 @@
   const buttons = document.querySelectorAll('.pub-table-head .sort-btn');
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const { key } = btn.dataset;
-      if (state.key === key) {
-        state.dir = -state.dir;
-      } else {
-        state.key = key;
-        state.dir = -1; /* new column starts highest-first */
-      }
-      buttons.forEach((other) => {
-        const active = other.dataset.key === state.key;
-        other.classList.toggle('is-active', active);
-        other.classList.toggle('desc', active && state.dir === -1);
-        other.classList.toggle('asc', active && state.dir === 1);
-      });
+      state.dir = -state.dir;
+      btn.classList.toggle('desc', state.dir === -1);
+      btn.classList.toggle('asc', state.dir === 1);
       renderPapers();
     });
   });
