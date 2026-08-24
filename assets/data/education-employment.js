@@ -100,22 +100,6 @@ const EDU_EMP_DATA = {
       ]
     },
     {
-      "title": "Campus Brand Ambassador (CBA)",
-      "org": "Amazon",
-      "url": "https://www.amazon.com/",
-      "domain": "amazon.com",
-      "logo": "a",
-      "logoColor": "#232f3e",
-      "start": "2025-03",
-      "end": "present",
-      "hideCurrent": true,
-      "periodText": "Mar 2025 – Present",
-      "location": "Purdue University · West Lafayette, IN",
-      "bullets": [
-        "Partner with Amazon recruiting to run campus hiring events, refer top talent, and share internship insights."
-      ]
-    },
-    {
       "title": "Graduate Teaching Assistant",
       "org": "Purdue University",
       "url": "https://www.cs.purdue.edu/",

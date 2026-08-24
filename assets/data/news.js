@@ -14,7 +14,6 @@ const NEWS_DATA = [
   { "date": "Aug 2025", "year": 2025, "tag": "talk",       "text": "Presented <a href=\"https://fbsdetector.github.io/\">FBSDetector</a> at the 34th USENIX Security Symposium in Seattle!" },
   { "date": "Jul 2025", "year": 2025, "tag": "award",      "text": "Received Purdue College of Science Graduate Student Travel Grant and USENIX Student Grant to attend USENIX Security '25!" },
   { "date": "May 2025", "year": 2025, "tag": "internship", "text": "Returned to Amazon as an Applied Scientist Intern!" },
-  { "date": "Mar 2025", "year": 2025, "tag": "service",    "text": "Started working as an Amazon Campus Brand Ambassador at Purdue University!" },
   { "date": "Jan 2025", "year": 2025, "tag": "paper",      "text": "<a href=\"https://arxiv.org/pdf/2401.04958\">FBSDetector</a> accepted to USENIX!" },
   { "date": "May 2024", "year": 2024, "tag": "internship", "text": "Started Summer Internship at Amazon!" },
   { "date": "Nov 2023", "year": 2023, "tag": "conference", "text": "Attended IJCNLP-AACL 2023 in Bali, Indonesia." },

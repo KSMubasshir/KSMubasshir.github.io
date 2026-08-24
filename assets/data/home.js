@@ -14,11 +14,6 @@ const HOME_DATA = {
       "domain": "aws.amazon.com", "logo": "aws", "logoColor": "#ff9900"
     },
     {
-      "org": "Amazon — Campus Brand Ambassador",
-      "detail": "Purdue University · March '25 – Present",
-      "domain": "amazon.com", "logo": "a", "logoColor": "#232f3e"
-    },
-    {
       "org": "Purdue University — Ph.D. Candidate (Fall '22 – Spring '27)",
       "detail": "Graduate Teaching Assistant (Spring '25, Fall '25) · Graduate Research Assistant (Fall '22 – Fall '24) · Department of Computer Science",
       "domain": "purdue.edu", "logo": "P", "logoColor": "#b1810b"
@@ -31,7 +26,7 @@ const HOME_DATA = {
         "I am a Ph.D. candidate in the Department of Computer Science at <a href=\"https://www.purdue.edu/\">Purdue University</a>. I started my Ph.D. in Fall '22 under the supervision of Professor <a href=\"https://www.cs.purdue.edu/homes/bertino/\">Elisa Bertino</a>. My expected graduation date is July 2027.",
         "My research addresses some of the most critical security challenges in modern cellular systems (4G/5G), focusing on detecting fake base stations and defending against complex multi-step attacks within both traditional cellular networks and more recent ORAN environments.",
         "I combine network security, machine learning, and large-scale data analysis to design detection frameworks that can seamlessly integrate into existing infrastructures without disrupting operations. My work aims to create scalable, trustworthy security solutions that protect billions of connected devices worldwide.",
-        "Alongside research, I actively contribute to my community as a campus brand ambassador for Amazon and a teaching assistant and graduate student mentor within Purdue's CS. My long-term goal is to bridge academia and industry to build future-proof, secure wireless networks that connect the global community."
+        "Alongside research, I actively contribute to my community as a teaching assistant and graduate student mentor within Purdue's CS. My long-term goal is to bridge academia and industry to build future-proof, secure wireless networks that connect the global community."
       ]
     },
     {
