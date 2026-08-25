@@ -9,13 +9,13 @@ const HOME_DATA = {
   ],
   "roles": [
     {
-      "org": "Purdue University: Ph.D. Candidate (Fall '22 – Spring '27)",
+      "org": " Ph.D. Candidate, Purdue University (Fall '22 – Spring '27)",
       "detail": "Graduate Research Assistant (Fall '22 – Fall '24, Spring '26, Fall '26) <br> Graduate Teaching Assistant (Spring '25, Fall '25) <br> Department of Computer Science",
       "domain": "purdue.edu", "logo": "P", "logoColor": "#b1810b"
     },
     {
-      "org": "AWS: Applied Scientist Intern (Summer '24, '25, '26)",
-      "detail": "Security Analytics and AI Research (SAAR), Boston, MA ('24, '25)<br>Security, Search and Observability, New York, NY ('26)",
+      "org": "Applied Scientist Intern, AWS (Summer '24, '25, '26)",
+      "detail": "Security Analytics and AI Research (SAAR), Boston, MA (Summer '24, '25)<br>Security, Search and Observability, New York, NY (Summer '26)",
       "domain": "aws.amazon.com", "logo": "aws", "logoColor": "#ff9900"
     }
   ],
