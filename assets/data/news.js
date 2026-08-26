@@ -3,7 +3,6 @@
    "tag" renders as a colored chip; valid tags: paper, talk, conference, pc, service, award,
    internship, milestone, media (see NEWS_TAGS in render.js / .ntag- styles in style.css). */
 const NEWS_DATA = [
-  { "date": "Aug 2026", "year": 2026, "tag": "pc",         "text": "Invited to serve on the Program Committee of the Network and Distributed System Security Symposium (NDSS) 2028!" },
   { "date": "Jun 2026", "year": 2026, "tag": "pc",         "text": "Invited to serve on the Program Committee of the USENIX Security Symposium 2027!" },
   { "date": "Jun 2026", "year": 2026, "tag": "conference", "text": "Accepted to the <a href=\"https://aisummit.acm.org/\">ACM AI Summit</a> Doctoral Consortium 2026 in Atlanta, Georgia!" },
   { "date": "May 2026", "year": 2026, "tag": "internship", "text": "Returned to Amazon Web Services (AWS) as an Applied Scientist Intern for Summer '26, this time in New York!" },
